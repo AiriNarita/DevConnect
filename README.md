@@ -14,6 +14,10 @@ DevConnectはそんな仲間と繋がり、協力し学びながら共に成長�
 
 このアプリの名前には、そんな思いが込められています。
 
+## 技術スタック
+このRepositoryの**Wikiに記載**したのでこちらをご覧ください。<br>
+▶︎ [DevConnect 技術スタックWiki](https://github.com/AiriNarita/DevConnect/wiki/Home:-about-Develop-DevConnect)
+
 
 ---
 
