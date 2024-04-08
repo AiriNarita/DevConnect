@@ -106,14 +106,41 @@
 
 
 
-**WIP**
-
 
 ### Table: Tweets
 
+| Column       | Japanese name | Data Type | Primary_key | Foreign_key | Nullable | Description                                      |
+|--------------|---------------|-----------|-------------|-------------|----------|--------------------------------------------------|
+| tweet_id     | ツイートID       | INT       | ○           |             |          |                          |
+| user_id      | ユーザーID       | INT       |             | ○           |          | Usersテーブルを参照する外部キー                   |
+| content      | 内容            | TEXT      |             |             | ○        | ツイートの内容                                    |
+| created_at   | 作成日時          | TIMESTAMP |             |             |          |  |
+| updated_at  | 更新日時          | TIMESTAMP |             |             |          |                |
+
+
 ### Table: Tweets_comments
 
+| Column         | Japanese name | Data Type | Primary_key | Foreign_key | Nullable | Description                                      |
+|----------------|---------------|-----------|-------------|-------------|----------|--------------------------------------------------|
+| comment_id     | コメントID        | INT       | ○           |             |          |                          |
+| tweet_id       | ツイートID        | INT       |             | ○           |          | Tweetsテーブルを参照する外部キー                   |
+| user_id        | ユーザーID         | INT       |             | ○           |          | Usersテーブルを参照する外部キー                   |
+| content        | 内容             | TEXT      |             |             | ○        | コメントの内容                                    |
+| created_at   | 作成日時          | TIMESTAMP |             |             |          |  |
+| updated_at  | 更新日時          | TIMESTAMP |             |             |          |                |
+
 ### Table: Tweets_likes
+
+| Column       | Japanese name | Data Type | Primary_key | Foreign_key | Nullable | Description                                      |
+|--------------|---------------|-----------|-------------|-------------|----------|--------------------------------------------------|
+| like_id      | いいねID         | INT       | ⚪️         |             |          |                             |
+| tweet_id     | ツイートID       | INT       |             | ⚪️         |          | Tweetsテーブルを参照する外部キー                   |
+| user_id      | ユーザーID       | INT       |             | ⚪️         |          | Usersテーブルを参照する外部キー                   |
+| created_at   | 作成日時          | TIMESTAMP |             |             |          |  |
+| updated_at  | 更新日時          | TIMESTAMP |             |             |          |                |
+
+
+WIP
 
 ### Table: Events
 
@@ -125,4 +152,5 @@
 ### Table: Rooms
 
 ### Table: Notifications
+
 
