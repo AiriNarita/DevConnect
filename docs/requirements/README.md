@@ -11,6 +11,7 @@
 ## 開発ドキュメント・機能仕様書etc
 
 - [機能一覧](https://github.com/AiriNarita/DevConnect/blob/main/docs/requirements/functions.md)
+- [画面一覧](https://github.com/AiriNarita/DevConnect/blob/main/docs/requirements/viewPageList.md)
 - [画面設計(Figma)](https://www.figma.com/file/RTR4YWlsQ5UUExFW463PSo/DevConnect?type=design&node-id=0-1&mode=design&t=Kh2z3Ah0hr852bDM-0)
 - [DB設計](https://github.com/AiriNarita/DevConnect/blob/main/docs/requirements/DbDesign.md)
 - インフラ構成図
