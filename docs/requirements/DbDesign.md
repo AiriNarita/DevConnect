@@ -60,7 +60,7 @@
 
 | Column           | Japanese name | Data Type | Primary_key | Foreign_key | Nullable | Description                                          |
 |------------------|---------------|-----------|-------------|-------------|----------|------------------------------------------------------|
-| task_comment_id  | タスクコメントID     | INT       | ○        |             |          | 各タスクコメントの一意の識別子                                 |
+| task_comment_id  | タスクコメントID     | INT       | ○        |             |          |                                  |
 | task_id          | タスクID           | INT       |             | ○        |          | Tasksテーブルを参照する外部キー                                |
 | user_id          | ユーザーID         | INT       |             | ○        |          | Usersテーブルを参照する外部キー                                |
 | content          | 内容             | TEXT      |             |             | ○        | コメントの内容                                                    |
@@ -89,7 +89,7 @@
 
 | Column         | Japanese name | Data Type | Primary_key | Foreign_key | Nullable | Description                                      |
 |----------------|---------------|-----------|-------------|-------------|----------|--------------------------------------------------|
-| like_id        | いいねID          | INT       | ○           |             |          | 各いいねの一意の識別子                            |
+| like_id        | いいねID          | INT       | ○           |             |          |                             |
 | article_id     | 記事ID            | INT       |             | ○           |          | Articlesテーブルを参照する外部キー                |
 | user_id        | ユーザーID         | INT       |             | ○           |          | Usersテーブルを参照する外部キー                   |
 | created_at   | 作成日時          | TIMESTAMP |             |             |          |  |
@@ -173,7 +173,7 @@
 
 | Column         | Japanese name | Data Type | Primary_key | Foreign_key | Nullable | Description                                      |
 |----------------|---------------|-----------|-------------|-------------|-------|--------------------------------------------------|
-| comment_id     | コメントID        | INT       | ○           |             |       | 各コメントの一意の識別子                         |
+| comment_id     | コメントID        | INT       | ○           |             |       |                          |
 | event_id       | イベントID        | INT       |             | ○           |       | Eventsテーブルを参照する外部キー                   |
 | user_id        | ユーザーID         | INT       |             | ○           |       | Usersテーブルを参照する外部キー                   |
 | content        | 内容             | TEXT      |             |             |    | コメントの内容                                    |
@@ -185,7 +185,7 @@
 
 | Column       | Japanese name | Data Type | Primary_key | Foreign_key | Nullable | Description                                      |
 |--------------|---------------|-----------|-------------|-------------|--------|--------------------------------------------------|
-| like_id      | いいねID         | INT       | ○           |             |        | 各いいねの一意の識別子                            |
+| like_id      | いいねID         | INT       | ○           |             |        |                             |
 | event_id     | イベントID        | INT       |             | ○           |        | Eventsテーブルを参照する外部キー                   |
 | user_id      | ユーザーID       | INT       |             | ○           |        | Usersテーブルを参照する外部キー                   |
 | created_at   | 作成日時         | TIMESTAMP |             |             |        |                             |
