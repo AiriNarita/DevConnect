@@ -1,7 +1,6 @@
-package com.example.DevConnect.domain.repository
 import org.springframework.stereotype.Repository
 
-//@Repository
+@Repository
 interface TaskRepository {
 
 }
