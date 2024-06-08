@@ -1,5 +1,6 @@
 package com.example.DevConnect.adapter
 
+import com.example.DevConnect.domain.model.entity.TaskEntity
 import com.example.DevConnect.domain.service.TaskService
 import org.springframework.stereotype.Controller
 import org.springframework.web.bind.annotation.GetMapping
@@ -16,7 +17,8 @@ public class TaskController(
 ) {
 
     @GetMapping("")
-    fun findAll() {
+    fun findAll(): List<TaskEntity>{
+        return taskService.findAll()
     }
 
 }
