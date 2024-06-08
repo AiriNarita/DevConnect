@@ -1,10 +1,9 @@
 package com.example.DevConnect.infrastructure
 
-import TaskEntity
+import com.example.DevConnect.domain.model.entity.TaskEntity
 import org.seasar.doma.Dao
 import org.seasar.doma.Select
 import org.seasar.doma.boot.ConfigAutowireable
-import org.springframework.context.annotation.Configuration
 import org.springframework.transaction.annotation.Transactional
 
 @Dao
