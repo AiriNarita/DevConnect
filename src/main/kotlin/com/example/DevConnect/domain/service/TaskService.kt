@@ -1,7 +1,7 @@
 package com.example.DevConnect.domain.service
 
-import TaskRepository
 import com.example.DevConnect.domain.model.entity.TaskEntity
+import com.example.DevConnect.domain.repository.TaskRepository
 import org.springframework.stereotype.Service
 
 /**
