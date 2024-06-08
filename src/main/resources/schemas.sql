@@ -3,7 +3,7 @@ CREATE TABLE tasks (
     goalId INT,
     parentTaskId INT,
     description TEXT NULL,
-    priority INT NULL,
+    priority ENUM('LOW', 'MEDIUM', 'HIGH') NULL,
     dueDate DATE NULL,
     completed BOOLEAN NULL,
     createdAt TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
