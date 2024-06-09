@@ -1,5 +1,6 @@
 package com.example.DevConnect.domain.model.entity
 
+import jakarta.annotation.Nullable
 import org.seasar.doma.*
 import java.time.LocalDate
 import java.time.LocalDateTime
@@ -26,17 +27,22 @@ data class TaskEntity(
         @GeneratedValue(strategy = GenerationType.IDENTITY)
         val taskId: Int? = null,
 
+        @Nullable
         val goalId: Int? = null,
 
+        @Nullable
         val parentTaskId: Int? = null,
 
+        @Nullable
         val description: String? = null,
 
+        @Nullable
         val priority: Priority? = null,
 
+        @Nullable
         val dueDate: LocalDate? = null,
 
-        val completed: Boolean? = null,
+        val completed: Boolean? = false,
 
         val createdAt: LocalDateTime = LocalDateTime.now(),
 

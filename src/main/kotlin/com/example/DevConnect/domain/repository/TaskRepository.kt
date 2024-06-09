@@ -15,4 +15,12 @@ class TaskRepository(
     fun findAll(): List<TaskEntity>{
         return taskDao.findAll()
     }
+
+    /**
+     * タスクを作成する
+     * @return タスクエンティティ
+     */
+//    fun createTask(taskEntity: TaskEntity) {
+//        return taskDao.create(taskEntity)
+//    }
 }

@@ -20,4 +20,12 @@ class TaskService(
     fun findAll(): List<TaskEntity> {
         return taskRepository.findAll()
     }
+
+    /**
+     * タスクを作成する
+     * @return タスクエンティティ
+     */
+//    fun createTask(taskEntity: TaskEntity): Result<TaskEntity> {
+//        return taskRepository.createTask(taskEntity)
+//    }
 }
