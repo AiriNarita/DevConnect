@@ -2,6 +2,7 @@ package com.example.DevConnect.domain.repository
 
 import com.example.DevConnect.domain.model.entity.TaskEntity
 import com.example.DevConnect.infrastructure.TaskDao
+import org.seasar.doma.jdbc.Result
 import org.springframework.stereotype.Repository
 
 @Repository
@@ -20,7 +21,7 @@ class TaskRepository(
      * タスクを作成する
      * @return タスクエンティティ
      */
-//    fun createTask(taskEntity: TaskEntity) {
-//        return taskDao.create(taskEntity)
-//    }
+    fun createTask(taskEntity: TaskEntity): Result<TaskEntity> {
+        return taskDao.create(taskEntity)
+    }
 }

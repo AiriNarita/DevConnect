@@ -2,7 +2,7 @@ package com.example.DevConnect.adapter
 
 import com.example.DevConnect.domain.model.entity.TaskEntity
 import com.example.DevConnect.domain.service.TaskService
-import org.springframework.stereotype.Controller
+import org.seasar.doma.jdbc.Result
 import org.springframework.web.bind.annotation.*
 
 /**
@@ -28,12 +28,12 @@ public class TaskController(
      * タスクを作成する
      * @return タスクエンティティ
      */
-//    @PostMapping("")
-//    fun create(
-//        @RequestBody taskEntity: TaskEntity
-//    ): Result<TaskEntity>{
-//        return taskService.createTask(taskEntity)
-//    }
+    @PostMapping("")
+    fun create(
+        @RequestBody taskEntity: TaskEntity
+    ): Result<TaskEntity> {
+        return taskService.createTask(taskEntity)
+    }
 
 
 

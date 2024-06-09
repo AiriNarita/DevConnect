@@ -1,10 +1,11 @@
-INSERT INTO tasks (goal_id, parent_task_id, description, priority, due_date, completed, version)
+INSERT INTO tasks (task_id, goal_id, parent_task_id, description, priority, due_date, completed, version)
 VALUES (
-    /*goalId*/NULL,
-    /*parentTaskId*/NULL,
-    /*description*/NULL,
-    /*priority*/'LOW',
-    /*dueDate*/NULL,
-    /*completed*/FALSE,
-    /*version*/0
+    /* taskEntity.taskId */1,
+    /*taskEntity.goalId*/NULL,
+    /*taskEntity.parentTaskId*/NULL,
+    /*taskEntity.description*/NULL,
+    /*taskEntity.priority*/'LOW',
+    /*taskEntity.dueDate*/NULL,
+    /*taskEntity.completed*/FALSE,
+    /*taskEntity.version*/0
 )

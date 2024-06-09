@@ -25,27 +25,35 @@ data class TaskEntity(
 
         @Id
         @GeneratedValue(strategy = GenerationType.IDENTITY)
+        @Column(name = "task_id")
         val taskId: Int? = null,
 
         @Nullable
+        @Column(name = "goal_id")
         val goalId: Int? = null,
 
         @Nullable
+        @Column(name = "parent_task_id")
         val parentTaskId: Int? = null,
 
         @Nullable
+        @Column(name = "description")
         val description: String? = null,
 
         @Nullable
+        @Column(name = "priority")
         val priority: Priority? = null,
 
         @Nullable
+        @Column(name = "due_date")
         val dueDate: LocalDate? = null,
 
         val completed: Boolean? = false,
 
+        @Column(name = "created_at")
         val createdAt: LocalDateTime = LocalDateTime.now(),
 
+        @Column(name = "updated_at")
         val updatedAt: LocalDateTime = LocalDateTime.now(),
 
         @Version

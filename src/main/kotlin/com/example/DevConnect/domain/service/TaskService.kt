@@ -2,6 +2,7 @@ package com.example.DevConnect.domain.service
 
 import com.example.DevConnect.domain.model.entity.TaskEntity
 import com.example.DevConnect.domain.repository.TaskRepository
+import org.seasar.doma.jdbc.Result
 import org.springframework.stereotype.Service
 
 /**
@@ -25,7 +26,7 @@ class TaskService(
      * タスクを作成する
      * @return タスクエンティティ
      */
-//    fun createTask(taskEntity: TaskEntity): Result<TaskEntity> {
-//        return taskRepository.createTask(taskEntity)
-//    }
+    fun createTask(taskEntity: TaskEntity): Result<TaskEntity> {
+        return taskRepository.createTask(taskEntity)
+    }
 }
