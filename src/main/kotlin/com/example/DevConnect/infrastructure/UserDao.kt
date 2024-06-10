@@ -20,6 +20,6 @@ interface UserDao {
      * @param userEntity ユーザーエンティティ
      * @return ユーザーエンティティ
      */
-//    @Insert(sqlFile = true)
-//    fun createUser(userEntity: UserEntity): Result<UserEntity>
+    @Insert(sqlFile = true)
+    fun createUser(userEntity: UserEntity): Result<UserEntity>
 }

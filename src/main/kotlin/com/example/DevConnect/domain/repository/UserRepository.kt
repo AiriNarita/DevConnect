@@ -2,6 +2,7 @@ package com.example.DevConnect.domain.repository
 
 import com.example.DevConnect.domain.model.entity.UserEntity
 import com.example.DevConnect.infrastructure.UserDao
+import org.seasar.doma.jdbc.Result
 import org.springframework.stereotype.Repository
 
 @Repository
@@ -14,7 +15,7 @@ class UserRepository(
      * @param userEntity ユーザーエンティティ
      * @return ユーザーエンティティ
      */
-//    fun createUser(userEntity: UserEntity): Result<UserEntity> {
-//        return userDao.createUser(userEntity)
-//    }
+    fun createUser(userEntity: UserEntity): Result<UserEntity> {
+        return userDao.createUser(userEntity)
+    }
 }
