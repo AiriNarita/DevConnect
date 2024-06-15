@@ -1,0 +1,1 @@
+DELETE FROM tasks WHERE taskId = /*taskEntity.taskId*/0;

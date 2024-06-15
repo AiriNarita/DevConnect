@@ -2,6 +2,7 @@ package com.example.DevConnect.infrastructure
 
 import com.example.DevConnect.domain.model.entity.TaskEntity
 import org.seasar.doma.Dao
+import org.seasar.doma.Delete
 import org.seasar.doma.Insert
 import org.seasar.doma.Select
 import org.seasar.doma.boot.ConfigAutowireable
@@ -30,4 +31,10 @@ interface TaskDao {
      */
     @Insert(sqlFile = true)
     fun create(taskEntity: TaskEntity): Result<TaskEntity>
+
+    /**
+     * タスクを削除する
+     */
+    @Delete(sqlFile = true)
+    fun deleteTask(taskEntity: TaskEntity):Result<TaskEntity>
 }
