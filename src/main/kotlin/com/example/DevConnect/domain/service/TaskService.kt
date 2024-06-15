@@ -29,4 +29,14 @@ class TaskService(
     fun createTask(taskEntity: TaskEntity): Result<TaskEntity> {
         return taskRepository.createTask(taskEntity)
     }
+
+    /**
+     * タスクを削除する
+     * @return タスクエンティティ
+     */
+    fun deleteTask(taskEntity: TaskEntity): Result<TaskEntity> {
+        return taskRepository.deleteTask(taskEntity)
+    }
+
+
 }

@@ -35,6 +35,16 @@ public class TaskController(
         return taskService.createTask(taskEntity)
     }
 
+    /**
+     * タスクを削除する
+     * @return タスクエンティティ
+     */
+    fun deleteTask(
+        @RequestBody taskEntity: TaskEntity
+    ): Result<TaskEntity> {
+        return taskService.deleteTask(taskEntity)
+    }
+
 
 
 }

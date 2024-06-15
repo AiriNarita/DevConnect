@@ -24,4 +24,12 @@ class TaskRepository(
     fun createTask(taskEntity: TaskEntity): Result<TaskEntity> {
         return taskDao.create(taskEntity)
     }
+
+    /**
+     * タスクを削除する
+     * @return タスクエンティティ
+     */
+fun deleteTask(taskEntity: TaskEntity): Result<TaskEntity> {
+        return taskDao.deleteTask(taskEntity)
+    }
 }
