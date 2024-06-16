@@ -36,5 +36,5 @@ interface TaskDao {
      * タスクを削除する
      */
     @Delete(sqlFile = true)
-    fun deleteTask(taskEntity: TaskEntity):Result<TaskEntity>
+    fun deleteTask(id: Long): Int
 }

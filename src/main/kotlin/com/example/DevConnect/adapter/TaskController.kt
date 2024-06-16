@@ -39,10 +39,11 @@ public class TaskController(
      * タスクを削除する
      * @return タスクエンティティ
      */
+    @DeleteMapping("/{id}")
     fun deleteTask(
-        @RequestBody taskEntity: TaskEntity
-    ): Result<TaskEntity> {
-        return taskService.deleteTask(taskEntity)
+        @PathVariable("taskId") id: Long
+    ): Int {
+        return taskService.deleteTask(id)
     }
 
 

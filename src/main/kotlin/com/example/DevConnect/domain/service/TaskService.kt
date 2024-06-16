@@ -34,8 +34,8 @@ class TaskService(
      * タスクを削除する
      * @return タスクエンティティ
      */
-    fun deleteTask(taskEntity: TaskEntity): Result<TaskEntity> {
-        return taskRepository.deleteTask(taskEntity)
+    fun deleteTask(taskId: Long): Int {
+        return taskRepository.deleteTask(taskId)
     }
 
 

@@ -29,7 +29,7 @@ class TaskRepository(
      * タスクを削除する
      * @return タスクエンティティ
      */
-fun deleteTask(taskEntity: TaskEntity): Result<TaskEntity> {
-        return taskDao.deleteTask(taskEntity)
+fun deleteTask(id: Long): Int {
+        return taskDao.deleteTask(id)
     }
 }
