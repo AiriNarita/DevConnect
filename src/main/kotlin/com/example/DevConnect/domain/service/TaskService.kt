@@ -38,5 +38,12 @@ class TaskService(
         return taskRepository.deleteTask(taskId)
     }
 
-
+    /**
+     * タスクのステータスを更新する
+     * @return taskId
+     */
+    fun updateTaskStatus(taskId: Long): TaskEntity {
+        taskRepository.updateTaskStatus(taskId)
+        return taskRepository.findById(taskId)
+    }
 }

@@ -1,0 +1,1 @@
+SELECT * from tasks where task_id = /*taskId*/0;

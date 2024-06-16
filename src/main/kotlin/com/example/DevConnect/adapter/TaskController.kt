@@ -3,6 +3,7 @@ package com.example.DevConnect.adapter
 import com.example.DevConnect.domain.model.entity.TaskEntity
 import com.example.DevConnect.domain.service.TaskService
 import org.seasar.doma.jdbc.Result
+import org.springframework.scheduling.config.Task
 import org.springframework.web.bind.annotation.*
 
 /**
@@ -44,5 +45,16 @@ public class TaskController(
         @PathVariable("taskId") id: Long
     ): Int {
         return taskService.deleteTask(id)
+    }
+
+    /**
+     * タスクのステータスを更新する
+     * @return taskId
+     */
+    @PutMapping("/{taskId}")
+    fun updateTaskStatus(
+        @PathVariable("taskId") id: Long
+    ): TaskEntity {
+        return taskService.updateTaskStatus(id)
     }
 }

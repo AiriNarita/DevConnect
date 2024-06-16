@@ -32,4 +32,19 @@ class TaskRepository(
 fun deleteTask(id: Long): Int {
         return taskDao.deleteTask(id)
     }
+
+    /**
+     * タスクのステータスを更新する
+     * @return taskId
+     */
+    fun updateTaskStatus(taskId: Long): Int {
+        return taskDao.updateTaskStatus(taskId)
+    }
+
+    /**
+     * タスクを1件取得する
+     */
+    fun findById(id: Long): TaskEntity {
+        return taskDao.findById(id)
+    }
 }
