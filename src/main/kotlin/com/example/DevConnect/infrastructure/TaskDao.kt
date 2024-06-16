@@ -5,6 +5,7 @@ import org.seasar.doma.Dao
 import org.seasar.doma.Delete
 import org.seasar.doma.Insert
 import org.seasar.doma.Select
+import org.seasar.doma.Update
 import org.seasar.doma.boot.ConfigAutowireable
 import org.seasar.doma.jdbc.Result
 import org.springframework.transaction.annotation.Transactional
@@ -36,5 +37,9 @@ interface TaskDao {
      * タスクを削除する
      */
     @Delete(sqlFile = true)
-    fun deleteTask(id: Long): Int
+    fun deleteTask(taskId: Long): Int
+
+    @Update
+    fun updateTaskStatus(taskEntity: TaskEntity): Result<TaskEntity>
+
 }

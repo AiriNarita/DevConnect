@@ -1,1 +1,1 @@
-DELETE FROM tasks WHERE taskId = /*id*/0;
+DELETE FROM tasks WHERE task_id = /*taskId*/0;
