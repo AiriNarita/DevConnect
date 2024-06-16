@@ -26,6 +26,17 @@ public class TaskController(
     }
 
     /**
+     * タスクを1件取得する
+     * @return タスクエンティティ
+     */
+    @GetMapping("/{taskId}")
+    fun findById(
+        @PathVariable("taskId") id: Long
+    ): TaskEntity {
+        return taskService.findById(id)
+    }
+
+    /**
      * タスクを作成する
      * @return タスクエンティティ
      */

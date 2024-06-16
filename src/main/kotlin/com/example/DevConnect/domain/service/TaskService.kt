@@ -23,6 +23,13 @@ class TaskService(
     }
 
     /**
+     * タスクを1件取得する
+     */
+    fun findById(taskId: Long): TaskEntity {
+        return taskRepository.findById(taskId)
+    }
+
+    /**
      * タスクを作成する
      * @return タスクエンティティ
      */
