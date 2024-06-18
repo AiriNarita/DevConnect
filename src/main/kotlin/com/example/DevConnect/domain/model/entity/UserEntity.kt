@@ -27,4 +27,10 @@ data class UserEntity(
     @Column(name = "updated_at")
     val updatedAt: LocalDateTime = LocalDateTime.now(),
 
-    )
+    @Version
+    @Column(name = "version")
+    val version: Int? = null,
+
+    @Column(name = "user_status")
+    val userStatus: UserStatusEnum? = null
+)
