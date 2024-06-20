@@ -68,4 +68,16 @@ public class TaskController(
     ): TaskEntity {
         return taskService.updateTaskStatus(id)
     }
+
+    /**
+     * タスクの内容を更新する
+     *
+     */
+    @PutMapping("/{taskId}")
+    fun updateTaskContent(
+        @PathVariable("taskId") id: Long,
+        @RequestBody taskEntity: TaskEntity
+    ): Result<TaskEntity> {
+        return taskService.updateTaskContent(taskEntity)
+    }
 }

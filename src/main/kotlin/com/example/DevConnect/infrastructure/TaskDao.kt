@@ -1,6 +1,5 @@
 package com.example.DevConnect.infrastructure
 
-import com.example.DevConnect.domain.model.entity.Priority
 import com.example.DevConnect.domain.model.entity.TaskEntity
 import org.seasar.doma.Dao
 import org.seasar.doma.Delete
@@ -48,4 +47,10 @@ interface TaskDao {
      */
     @Select
     fun findById(taskId: Long): TaskEntity
+
+    /**
+     * タスクの内容を更新する
+     */
+    @Update(sqlFile = true)
+    fun updateTaskContent(taskEntity: TaskEntity): Result<TaskEntity>
 }

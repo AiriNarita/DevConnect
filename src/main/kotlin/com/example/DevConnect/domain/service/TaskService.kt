@@ -53,4 +53,12 @@ class TaskService(
         taskRepository.updateTaskStatus(taskId)
         return taskRepository.findById(taskId)
     }
+
+    /**
+     * タスクの内容を更新する
+     * @return taskId
+     */
+    fun updateTaskContent(taskEntity: TaskEntity):Result<TaskEntity>{
+        return taskRepository.updateTaskContent(taskEntity)
+    }
 }

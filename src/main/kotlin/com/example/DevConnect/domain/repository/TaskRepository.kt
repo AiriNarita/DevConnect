@@ -47,4 +47,11 @@ fun deleteTask(id: Long): Int {
     fun findById(id: Long): TaskEntity {
         return taskDao.findById(id)
     }
+
+    /**
+     * タスクの内容を更新する
+     */
+    fun updateTaskContent(taskEntity: TaskEntity):Result<TaskEntity> {
+        return taskDao.updateTaskContent(taskEntity)
+    }
 }
