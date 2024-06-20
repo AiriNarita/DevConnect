@@ -73,7 +73,7 @@ public class TaskController(
      * タスクの内容を更新する
      *
      */
-    @PutMapping("/{taskId}")
+    @PutMapping("/update/{taskId}")
     fun updateTaskContent(
         @PathVariable("taskId") id: Long,
         @RequestBody taskEntity: TaskEntity
