@@ -21,3 +21,18 @@ CREATE TABLE users(
     version INT NOT NULL,
     user_status VARCHAR(255) NOT NULL
 );
+
+CREATE TABLE articles (
+    article_id INT PRIMARY KEY,
+    user_id INT,
+    title VARCHAR(255) NOT NULL,
+    content TEXT,
+    image_url VARCHAR(255),
+    is_draft BOOLEAN NOT NULL,
+    is_public BOOLEAN NOT NULL,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+    version INT NOT NULL,
+    CONSTRAINT fk_user
+      FOREIGN KEY (user_id) REFERENCES users(user_id)
+);

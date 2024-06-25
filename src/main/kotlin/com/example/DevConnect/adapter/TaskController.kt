@@ -71,7 +71,7 @@ public class TaskController(
 
     /**
      * タスクの内容を更新する
-     *
+     *　
      */
     @PutMapping("/update/{taskId}")
     fun updateTaskContent(
@@ -80,4 +80,5 @@ public class TaskController(
     ): Result<TaskEntity> {
         return taskService.updateTaskContent(taskEntity)
     }
+
 }
