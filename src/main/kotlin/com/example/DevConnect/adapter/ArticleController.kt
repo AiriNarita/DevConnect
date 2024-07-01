@@ -7,6 +7,10 @@ import org.springframework.web.bind.annotation.RestController
 import org.seasar.doma.jdbc.Result
 import org.springframework.web.bind.annotation.RequestMapping
 
+/**
+ * ArticleController 記事コントローラー
+ * @property articleService ArticleService
+ */
 @RestController
 @RequestMapping("/articles")
 class ArticleController(
