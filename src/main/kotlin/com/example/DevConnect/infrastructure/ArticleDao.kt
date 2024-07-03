@@ -27,4 +27,11 @@ interface ArticleDao {
     @Insert(sqlFile = true)
     fun create(articleEntity: ArticleEntity):  Result<ArticleEntity>
 
+    /**
+     * 全件取得する
+     * @param articleEntity 記事エンティティ
+     * @return 記事エンティティ
+     */
+    @Select
+    fun findAllArticle(articleEntity: ArticleEntity):  List<ArticleEntity>
 }
