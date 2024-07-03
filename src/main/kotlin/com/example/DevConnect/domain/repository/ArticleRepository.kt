@@ -17,4 +17,13 @@ class ArticleRepository(
     fun create(articleEntity: ArticleEntity): Result<ArticleEntity> {
         return articleDao.create(articleEntity)
     }
+
+    /**
+     * 全件取得する
+     * @param articleEntity 記事エンティティ
+     * @return 記事エンティティ
+     */
+    fun findAllArticle(articleEntity: ArticleEntity): List<ArticleEntity> {
+        return articleDao.findAllArticle(articleEntity)
+    }
 }
