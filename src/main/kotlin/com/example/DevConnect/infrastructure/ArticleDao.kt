@@ -33,5 +33,5 @@ interface ArticleDao {
      * @return 記事エンティティ
      */
     @Select
-    fun findAllArticle(articleEntity: ArticleEntity):  List<ArticleEntity>
+    fun findAllArticle():  List<ArticleEntity>
 }

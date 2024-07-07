@@ -23,7 +23,7 @@ class ArticleRepository(
      * @param articleEntity 記事エンティティ
      * @return 記事エンティティ
      */
-    fun findAllArticle(articleEntity: ArticleEntity): List<ArticleEntity> {
-        return articleDao.findAllArticle(articleEntity)
+    fun findAllArticle(): List<ArticleEntity> {
+        return articleDao.findAllArticle()
     }
 }

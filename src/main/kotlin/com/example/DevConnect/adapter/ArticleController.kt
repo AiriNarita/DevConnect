@@ -5,6 +5,7 @@ import com.example.DevConnect.domain.service.ArticleService
 import org.springframework.web.bind.annotation.PostMapping
 import org.springframework.web.bind.annotation.RestController
 import org.seasar.doma.jdbc.Result
+import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.RequestMapping
 
 /**
@@ -25,6 +26,16 @@ class ArticleController(
     fun create(articleEntity: ArticleEntity): Result<ArticleEntity> {
         println(articleEntity)
         return articleService.create(articleEntity)
+    }
+
+    /**
+     * 記事の全件取得
+     * @param articleEntity 記事エンティティ
+     * @return 記事エンティティ
+     */
+    @GetMapping("")
+    fun findAllArticle(): List<ArticleEntity> {
+        return articleService.findAllArticle()
     }
 
 }

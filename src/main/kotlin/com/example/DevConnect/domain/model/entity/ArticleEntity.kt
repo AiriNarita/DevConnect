@@ -18,7 +18,7 @@ import java.time.LocalDateTime
  * @property version バージョン
  */
 @Entity(immutable = true)
-//, naming = NamingType.SNAKE_LOWER_CASE
+//, naming = NamingType.SNAKE_LOWER_CASEつけて@Columnを消す
 @Table(name = "articles")
 data class ArticleEntity(
     @Id
