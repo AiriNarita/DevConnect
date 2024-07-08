@@ -21,7 +21,7 @@ class UserController(
      * @param userEntity ユーザーエンティティ
      * @return ユーザーエンティティ
      */
-    @PostMapping("/users")
+    @PostMapping("")
     fun createUser(
         @RequestBody userEntity: UserEntity
     ): Result<UserEntity> {
