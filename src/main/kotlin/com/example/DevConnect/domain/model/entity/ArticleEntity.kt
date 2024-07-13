@@ -1,5 +1,6 @@
 package com.example.DevConnect.domain.model.entity
 
+import com.example.DevConnect.infrastructure.dto.ArticleDto
 import org.seasar.doma.*
 import org.seasar.doma.jdbc.entity.NamingType
 import java.time.LocalDateTime
@@ -39,14 +40,43 @@ data class ArticleEntity(
     val imageUrl: String?,
 
     @Column(name = "public_status")
-    val publicStatus:  ArticleStatus,
+    val publicStatus:  ArticleStatus= ArticleStatus.Public,
 
-//    @Column(name = "created_at")
-//    val createdAt: LocalDateTime = LocalDateTime.now(),
-//
-//    @Column(name = "updated_at")
-//    val updatedAt: LocalDateTime = LocalDateTime.now(),
-//
     @Column(name = "version")
     val version: Int
-)
+){
+    companion object {
+        fun fromDTO(dto: ArticleDto): ArticleEntity {
+            return ArticleEntity(
+                articleId = dto.articleId,
+                userId = dto.userId,
+                content = dto.content,
+                title = dto.title,
+                imageUrl = dto.imageUrl,
+                publicStatus = when (dto.publicStatus) {
+                    "DRAFT" -> ArticleStatus.Draft
+                    "PUBLIC" -> ArticleStatus.Public
+                    "ARCHIVED" -> ArticleStatus.Archived
+                    else -> throw IllegalArgumentException("Unknown status: ${dto.publicStatus}")
+                },
+                version = dto.version
+            )
+        }
+
+        fun toDTO(entity: ArticleEntity): ArticleDto {
+            return ArticleDto(
+                articleId = entity.articleId,
+                userId = entity.userId,
+                content = entity.content,
+                title = entity.title,
+                imageUrl = entity.imageUrl,
+                publicStatus = when (entity.publicStatus) {
+                    is ArticleStatus.Draft -> "DRAFT"
+                    is ArticleStatus.Public -> "PUBLIC"
+                    is ArticleStatus.Archived -> "ARCHIVED"
+                },
+                version = entity.version
+            )
+        }
+    }
+}
