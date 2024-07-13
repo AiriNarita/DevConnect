@@ -71,18 +71,17 @@
 
 ### Table: Articles
 
-| Column      | Japanese name | Data Type | Primary_key | Foreign_key | Nullable | Description          |
-|-------------|---------------|-----------|-------------|-------------|---------|----------------------|
-| article_id  | 記事ID            | INT       | ○        |             |         |                      |
-| user_id     | ユーザーID         | INT       |             | ○        |         | Usersテーブルを参照する外部キー   |
-| title       | タイトル           | VARCHAR   |             |             |         | 記事のタイトル              |
-| content     | 内容             | TEXT      |             |             | ○       | 記事の内容                |
-| image_url   | 画像URL          | VARCHAR   |             |             | ○       | 記事の画像のURL            |
-| is_draft    | 下書きフラグ        | BOOLEAN   |             |             |        | 記事が下書きであるかどうかを示すフラグ  |
-| is_public   | 公開フラグ          | BOOLEAN   |             |             |       | 記事が公開されているかどうかを示すフラグ |
-| created_at   | 作成日時          | TIMESTAMP |             |        |         |                      |
-| updated_at  | 更新日時          | TIMESTAMP |             |             |         |                      |
-| version      | バージョン        | INT       |             |             |        |                     |
+| Column      | Japanese name | Data Type | Primary Key | Foreign Key | Nullable | Description                             |
+|-------------|---------------|-----------|-------------|-------------|---------|-----------------------------------------|
+| article_id  | 記事ID         | INT       | ○           |             |         | 一意の識別子                             |
+| user_id     | ユーザーID     | INT       |             | ○           |         | Usersテーブルを参照する外部キー           |
+| title       | タイトル       | VARCHAR   |             |             |         | 記事のタイトル                           |
+| content     | 内容           | TEXT      |             |             | ○       | 記事の内容                               |
+| image_url   | 画像URL        | VARCHAR   |             |             | ○       | 記事の画像のURL                           |
+| status      | ステータス      | VARCHAR   |             |             |         | 記事の状態（例：draft, public, archived）|
+| created_at  | 作成日時       | TIMESTAMP |             |             |         | レコードの作成日時                        |
+| updated_at  | 更新日時       | TIMESTAMP |             |             |         | レコードの更新日時                        |
+| version     | バージョン     | INT       |             |             |         | レコードのバージョン管理用                 |
 
 
 ### Table: Article_Likes

@@ -25,22 +25,28 @@ data class ArticleEntity(
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "article_id")
     val articleId: Int? = null,
+
     @Column(name = "user_id")
     val userId: Int,
+
     @Column(name = "content")
     val content: String,
+
     @Column(name = "title")
     val title: String,
+
     @Column(name = "image_url")
     val imageUrl: String?,
-    @Column(name = "is_draft")
-    val isDraft: Boolean,
-    @Column(name = "is_public")
-    val isPublic: Boolean,
-    @Column(name = "created_at")
-    val createdAt: LocalDateTime = LocalDateTime.now(),
-    @Column(name = "updated_at")
-    val updatedAt: LocalDateTime = LocalDateTime.now(),
+
+    @Column(name = "public_status")
+    val publicStatus:  ArticleStatus,
+
+//    @Column(name = "created_at")
+//    val createdAt: LocalDateTime = LocalDateTime.now(),
+//
+//    @Column(name = "updated_at")
+//    val updatedAt: LocalDateTime = LocalDateTime.now(),
+//
     @Column(name = "version")
     val version: Int
 )
