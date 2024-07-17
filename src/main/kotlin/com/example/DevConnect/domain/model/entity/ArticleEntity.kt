@@ -12,8 +12,7 @@ import java.time.LocalDateTime
  * @property content 記事の内容
  * @property title タイトル
  * @property imageUrl 画像URL
- * @property isDraft 下書きフラグ
- * @property isPublic 公開フラグ
+ * @property publicStatus 公開ステータス
  * @property createdAt 作成日時
  * @property updatedAt 更新日時
  * @property version バージョン
@@ -40,43 +39,8 @@ data class ArticleEntity(
     val imageUrl: String?,
 
     @Column(name = "public_status")
-    val publicStatus:  ArticleStatus= ArticleStatus.Public,
+    val publicStatus:  ArticleStatus,
 
     @Column(name = "version")
     val version: Int
-){
-    companion object {
-        fun fromDTO(dto: ArticleDto): ArticleEntity {
-            return ArticleEntity(
-                articleId = dto.articleId,
-                userId = dto.userId,
-                content = dto.content,
-                title = dto.title,
-                imageUrl = dto.imageUrl,
-                publicStatus = when (dto.publicStatus) {
-                    "DRAFT" -> ArticleStatus.Draft
-                    "PUBLIC" -> ArticleStatus.Public
-                    "ARCHIVED" -> ArticleStatus.Archived
-                    else -> throw IllegalArgumentException("Unknown status: ${dto.publicStatus}")
-                },
-                version = dto.version
-            )
-        }
-
-        fun toDTO(entity: ArticleEntity): ArticleDto {
-            return ArticleDto(
-                articleId = entity.articleId,
-                userId = entity.userId,
-                content = entity.content,
-                title = entity.title,
-                imageUrl = entity.imageUrl,
-                publicStatus = when (entity.publicStatus) {
-                    is ArticleStatus.Draft -> "DRAFT"
-                    is ArticleStatus.Public -> "PUBLIC"
-                    is ArticleStatus.Archived -> "ARCHIVED"
-                },
-                version = entity.version
-            )
-        }
-    }
-}
+)
