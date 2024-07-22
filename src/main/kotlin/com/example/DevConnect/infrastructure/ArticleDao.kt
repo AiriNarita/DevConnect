@@ -34,4 +34,12 @@ interface ArticleDao {
      */
     @Select
     fun findAllArticle():  List<ArticleEntity>
+
+    /**
+     * IDで取得する
+     * @param id ID
+     * @return 記事エンティティ
+     */
+    @Select
+    fun findById(id: Int): Result<ArticleEntity>
 }

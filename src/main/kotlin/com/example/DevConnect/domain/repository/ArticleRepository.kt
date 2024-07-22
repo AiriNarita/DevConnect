@@ -26,4 +26,13 @@ class ArticleRepository(
     fun findAllArticle(): List<ArticleEntity> {
         return articleDao.findAllArticle()
     }
+
+    /**
+     * IDで取得する
+     * @param id ID
+     * @return 記事エンティティ
+     */
+    fun findById(id: Int): Result<ArticleEntity> {
+        return articleDao.findById(id)
+    }
 }
