@@ -1,6 +1,6 @@
 package com.example.DevConnect.infrastructure
 
-import com.example.DevConnect.domain.model.entity.UserEntity
+import com.example.DevConnect.domain.model.entity.user.UserEntity
 import org.seasar.doma.Dao
 import org.seasar.doma.Insert
 import org.seasar.doma.boot.ConfigAutowireable

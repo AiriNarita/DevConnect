@@ -1,4 +1,4 @@
-package com.example.DevConnect.domain.model.entity
+package com.example.DevConnect.domain.model.entity.task
 
 /**
  * Priority 優先度ENUMクラス

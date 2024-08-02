@@ -1,7 +1,7 @@
-package com.example.DevConnect.domain.service
+package com.example.DevConnect.service
 
-import com.example.DevConnect.domain.model.entity.TaskEntity
-import com.example.DevConnect.domain.repository.TaskRepository
+import com.example.DevConnect.domain.model.entity.task.TaskEntity
+import com.example.DevConnect.domain.repository.task.TaskRepository
 import org.seasar.doma.jdbc.Result
 import org.springframework.stereotype.Service
 

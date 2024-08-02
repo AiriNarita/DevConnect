@@ -1,6 +1,6 @@
-package com.example.DevConnect.domain.repository
+package com.example.DevConnect.domain.repository.article
 
-import com.example.DevConnect.domain.model.entity.ArticleEntity
+import com.example.DevConnect.domain.model.entity.article.ArticleEntity
 import com.example.DevConnect.infrastructure.ArticleDao
 import org.seasar.doma.jdbc.Result
 import org.springframework.stereotype.Repository

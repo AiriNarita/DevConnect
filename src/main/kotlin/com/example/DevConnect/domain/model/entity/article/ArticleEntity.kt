@@ -1,9 +1,6 @@
-package com.example.DevConnect.domain.model.entity
+package com.example.DevConnect.domain.model.entity.article
 
-import com.example.DevConnect.infrastructure.dto.ArticleDto
 import org.seasar.doma.*
-import org.seasar.doma.jdbc.entity.NamingType
-import java.time.LocalDateTime
 
 /**
  * ArticleEntity 記事エンティティ
@@ -39,7 +36,7 @@ data class ArticleEntity(
     val imageUrl: String?,
 
     @Column(name = "public_status")
-    val publicStatus:  ArticleStatus,
+    val publicStatus: ArticleStatus,
 
     @Column(name = "version")
     val version: Int

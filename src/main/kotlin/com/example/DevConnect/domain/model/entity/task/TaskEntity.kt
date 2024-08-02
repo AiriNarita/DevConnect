@@ -1,5 +1,6 @@
-package com.example.DevConnect.domain.model.entity
+package com.example.DevConnect.domain.model.entity.task
 
+import com.example.DevConnect.domain.model.entity.task.Priority
 import jakarta.annotation.Nullable
 import org.seasar.doma.*
 import java.time.LocalDate
@@ -23,40 +24,40 @@ import java.time.LocalDateTime
 @Table(name = "tasks")
 data class TaskEntity(
 
-        @Id
+    @Id
         @GeneratedValue(strategy = GenerationType.IDENTITY)
         @Column(name = "task_id")
         val taskId: Int? = null,
 
-        @Nullable
+    @Nullable
         @Column(name = "goal_id")
         val goalId: Int? = null,
 
-        @Nullable
+    @Nullable
         @Column(name = "parent_task_id")
         val parentTaskId: Int? = null,
 
-        @Nullable
+    @Nullable
         @Column(name = "description")
         val description: String? = null,
 
-        @Nullable
+    @Nullable
         @Column(name = "priority")
         val priority: Priority? = null,
 
-        @Nullable
+    @Nullable
         @Column(name = "due_date")
         val dueDate: LocalDate? = null,
 
-        val completed: Boolean? = false,
+    val completed: Boolean? = false,
 
-        @Column(name = "created_at")
+    @Column(name = "created_at")
         val createdAt: LocalDateTime = LocalDateTime.now(),
 
-        @Column(name = "updated_at")
+    @Column(name = "updated_at")
         val updatedAt: LocalDateTime = LocalDateTime.now(),
 
-        @Version
+    @Version
         @Column(name = "version")
         val version: Int
     )

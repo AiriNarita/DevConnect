@@ -1,6 +1,6 @@
-package com.example.DevConnect.domain.repository
+package com.example.DevConnect.domain.repository.user
 
-import com.example.DevConnect.domain.model.entity.UserEntity
+import com.example.DevConnect.domain.model.entity.user.UserEntity
 import com.example.DevConnect.infrastructure.UserDao
 import org.seasar.doma.jdbc.Result
 import org.springframework.stereotype.Repository

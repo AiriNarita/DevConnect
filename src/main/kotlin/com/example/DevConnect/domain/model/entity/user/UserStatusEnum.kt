@@ -1,4 +1,4 @@
-package com.example.DevConnect.domain.model.entity
+package com.example.DevConnect.domain.model.entity.user
 
 /**
  * UserStatusEnum ユーザーステータスENUMクラス

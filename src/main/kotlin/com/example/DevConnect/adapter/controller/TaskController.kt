@@ -1,9 +1,8 @@
-package com.example.DevConnect.adapter
+package com.example.DevConnect.adapter.controller
 
-import com.example.DevConnect.domain.model.entity.TaskEntity
-import com.example.DevConnect.domain.service.TaskService
+import com.example.DevConnect.domain.model.entity.task.TaskEntity
+import com.example.DevConnect.service.TaskService
 import org.seasar.doma.jdbc.Result
-import org.springframework.scheduling.config.Task
 import org.springframework.web.bind.annotation.*
 
 /**

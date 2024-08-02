@@ -1,7 +1,7 @@
-package com.example.DevConnect.adapter
+package com.example.DevConnect.adapter.controller
 
-import com.example.DevConnect.domain.model.entity.ArticleEntity
-import com.example.DevConnect.domain.service.ArticleService
+import com.example.DevConnect.domain.model.entity.article.ArticleEntity
+import com.example.DevConnect.service.ArticleService
 import org.springframework.web.bind.annotation.PostMapping
 import org.springframework.web.bind.annotation.RestController
 import org.seasar.doma.jdbc.Result

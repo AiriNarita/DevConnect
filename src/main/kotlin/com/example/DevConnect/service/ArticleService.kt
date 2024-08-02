@@ -1,7 +1,7 @@
-package com.example.DevConnect.domain.service
+package com.example.DevConnect.service
 
-import com.example.DevConnect.domain.model.entity.ArticleEntity
-import com.example.DevConnect.domain.repository.ArticleRepository
+import com.example.DevConnect.domain.model.entity.article.ArticleEntity
+import com.example.DevConnect.domain.repository.article.ArticleRepository
 import org.springframework.stereotype.Service
 import org.seasar.doma.jdbc.Result
 

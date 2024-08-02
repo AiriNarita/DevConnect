@@ -1,6 +1,6 @@
 package com.example.DevConnect.infrastructure
 
-import com.example.DevConnect.domain.model.entity.TaskEntity
+import com.example.DevConnect.domain.model.entity.task.TaskEntity
 import org.seasar.doma.Dao
 import org.seasar.doma.Delete
 import org.seasar.doma.Insert

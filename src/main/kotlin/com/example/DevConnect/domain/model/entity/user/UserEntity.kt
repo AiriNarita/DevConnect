@@ -1,4 +1,4 @@
-package com.example.DevConnect.domain.model.entity
+package com.example.DevConnect.domain.model.entity.user
 
 import lombok.NonNull
 import org.seasar.doma.*
