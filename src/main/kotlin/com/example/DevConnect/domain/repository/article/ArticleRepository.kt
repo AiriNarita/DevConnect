@@ -32,7 +32,7 @@ class ArticleRepository(
      * @param id ID
      * @return 記事エンティティ
      */
-    fun findById(id: Int): Result<ArticleEntity> {
+    fun findById(id: Int):ArticleEntity {
         return articleDao.findById(id)
     }
 }

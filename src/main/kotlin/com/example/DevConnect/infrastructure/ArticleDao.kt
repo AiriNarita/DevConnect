@@ -27,7 +27,6 @@ interface ArticleDao {
 
     /**
      * 全件取得する
-     * @param articleEntity 記事エンティティ
      * @return 記事エンティティ
      */
     @Select
@@ -39,5 +38,5 @@ interface ArticleDao {
      * @return 記事エンティティ
      */
     @Select
-    fun findById(id: Int): Result<ArticleEntity>
+    fun findById(id: Int): ArticleEntity
 }

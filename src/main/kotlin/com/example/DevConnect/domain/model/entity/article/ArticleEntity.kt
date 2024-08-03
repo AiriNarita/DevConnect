@@ -18,6 +18,7 @@ import org.seasar.doma.*
 //, naming = NamingType.SNAKE_LOWER_CASEつけて@Columnを消す
 @Table(name = "articles")
 data class ArticleEntity(
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "article_id")
