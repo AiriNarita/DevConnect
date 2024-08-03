@@ -20,7 +20,6 @@ class ArticleRepository(
 
     /**
      * 全件取得する
-     * @param articleEntity 記事エンティティ
      * @return 記事エンティティ
      */
     fun findAllArticle(): List<ArticleEntity> {
