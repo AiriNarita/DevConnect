@@ -4,6 +4,18 @@ import lombok.NonNull
 import org.seasar.doma.*
 import java.time.LocalDateTime
 
+/**
+ * UserEntity ユーザーエンティティ
+ * @property userId ユーザーID
+ * @property username ユーザー名
+ * @property email メールアドレス
+ * @property password パスワード
+ * @property createdAt 作成日時
+ * @property updatedAt 更新日時
+ * @property version バージョン
+ * @property userStatus ユーザーステータス
+ */
+
 @Entity(immutable = true)
 @Table(name = "users")
 data class UserEntity(
