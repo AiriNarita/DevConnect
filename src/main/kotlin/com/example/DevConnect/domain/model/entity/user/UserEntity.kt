@@ -6,6 +6,7 @@ import java.time.LocalDateTime
 
 /**
  * UserEntity ユーザーエンティティ
+ *
  * @property userId ユーザーID
  * @property username ユーザー名
  * @property email メールアドレス

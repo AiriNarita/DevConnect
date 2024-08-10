@@ -6,5 +6,6 @@ class Articlefactory {
      * 生成する
      */
     fun from() {
+        
     }
 }
