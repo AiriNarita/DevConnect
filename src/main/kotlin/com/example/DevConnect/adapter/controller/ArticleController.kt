@@ -20,7 +20,7 @@ class ArticleController(
 ) {
     /**
      * 記事の登録
-     * @param articleEntity 記事エンティティ
+     * @param articleDto 記事DTO
      * @return 記事エンティティ
      */
     @PostMapping("")

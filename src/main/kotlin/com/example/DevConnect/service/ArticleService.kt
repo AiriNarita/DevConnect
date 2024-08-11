@@ -10,7 +10,6 @@ import org.seasar.doma.jdbc.Result
 @Service
 class ArticleService(
     private val articleRepository: ArticleRepository,
-    private val articleFactory: ArticleFactory
 ) {
 
     /**
@@ -19,7 +18,7 @@ class ArticleService(
      * @return 記事エンティティ
      */
     fun create(articleDto: ArticleDto):  Result<ArticleEntity> {
-        val entity = articleFactory.from(articleDto)
+        val entity = ArticleFactory.from(articleDto)
         return articleRepository.create(entity)
     }
     /**
