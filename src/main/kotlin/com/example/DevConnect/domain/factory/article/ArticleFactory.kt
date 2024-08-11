@@ -7,6 +7,7 @@ class ArticleFactory {
 
     /**
      * 生成する
+     *
      * @param dto 記事DTO
      * @return ArticleEntity
      */

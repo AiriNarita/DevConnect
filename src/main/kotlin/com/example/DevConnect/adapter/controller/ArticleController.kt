@@ -1,8 +1,7 @@
 package com.example.DevConnect.adapter.controller
 
-import com.example.DevConnect.adapter.dto.ArticleDTO
-import com.example.DevConnect.adapter.dto.ArticleDto
 import com.example.DevConnect.domain.model.entity.article.ArticleEntity
+import com.example.DevConnect.infrastructure.dto.ArticleDto
 import com.example.DevConnect.service.ArticleService
 import org.springframework.web.bind.annotation.PostMapping
 import org.springframework.web.bind.annotation.RestController
@@ -31,7 +30,6 @@ class ArticleController(
 
     /**
      * 記事の全件取得
-     * @param articleEntity 記事エンティティ
      * @return 記事エンティティ
      */
     @GetMapping("")
