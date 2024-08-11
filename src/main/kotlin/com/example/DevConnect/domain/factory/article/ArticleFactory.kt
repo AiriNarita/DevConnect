@@ -13,6 +13,7 @@ class ArticleFactory {
          */
         fun from(dto: ArticleDto): ArticleEntity {
             return ArticleEntity(
+                articleId = dto.articleId,
                 userId = dto.userId,
                 content = dto.content,
                 title = dto.title,
