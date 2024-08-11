@@ -23,16 +23,16 @@ data class UserEntity(
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "user_id")
-    val userId: Int?= null,
+    val userId: Int,
 
     @NonNull
-    val username: String? = null,
+    val username: String,
 
     @NonNull
-    val email: String? = null,
+    val email: String,
 
     @NonNull
-    val password: String? = null,
+    val password: String,
 
     @Column(name = "created_at")
     val createdAt: LocalDateTime = LocalDateTime.now(),
@@ -42,8 +42,11 @@ data class UserEntity(
 
     @Version
     @Column(name = "version")
-    val version: Int? = null,
+    val version: Int,
 
     @Column(name = "user_status")
-    val userStatus: UserStatusEnum? = null
+    val userStatus: UserStatusEnum,
+
+    @Column(name = "role")
+    val role: UserRole,
 )

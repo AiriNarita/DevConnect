@@ -1,11 +1,13 @@
 package com.example.DevConnect.adapter.controller
 
+import com.example.DevConnect.configration.CustomUserDetails
 import com.example.DevConnect.domain.model.entity.article.ArticleEntity
 import com.example.DevConnect.infrastructure.dto.ArticleDto
 import com.example.DevConnect.service.ArticleService
 import org.springframework.web.bind.annotation.PostMapping
 import org.springframework.web.bind.annotation.RestController
 import org.seasar.doma.jdbc.Result
+import org.springframework.security.core.context.SecurityContextHolder
 import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.RequestMapping
 
@@ -25,7 +27,13 @@ class ArticleController(
      */
     @PostMapping("")
     fun create(articleDto: ArticleDto): Result<ArticleEntity> {
-        return articleService.create(articleDto)
+        // 現在の認証されたユーザー情報を取得
+        val authentication = SecurityContextHolder.getContext().authentication
+        val userId = (authentication.principal as CustomUserDetails).id
+
+        // `userId` を ArticleDto にセット
+        val articleDtoWithUserId = articleDto.copy(userId = userId)
+        return articleService.create(articleDtoWithUserId)
     }
 
     /**
