@@ -1,5 +1,7 @@
 package com.example.DevConnect.infrastructure.dto
 
+import com.example.DevConnect.domain.model.entity.article.ArticleStatus
+
 /**
  * ArticleDto 記事DTOクラス
  * @property articleId 記事ID
@@ -11,11 +13,11 @@ package com.example.DevConnect.infrastructure.dto
  * @property version バージョン
  */
 data class ArticleDto(
-    val articleId: Int?,
+    val articleId: Int? = null,
     val userId: Int,
     val content: String,
     val title: String,
     val imageUrl: String?,
-    val publicStatus: String,
+    val publicStatus: ArticleStatus,
     val version: Int
 )

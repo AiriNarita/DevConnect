@@ -1,7 +1,7 @@
 package com.example.DevConnect.domain.factory.article
 
-import com.example.DevConnect.adapter.dto.ArticleDTO
 import com.example.DevConnect.domain.model.entity.article.ArticleEntity
+import com.example.DevConnect.infrastructure.dto.ArticleDto
 
 class ArticleFactory {
 
@@ -10,7 +10,7 @@ class ArticleFactory {
      * @param dto 記事DTO
      * @return ArticleEntity
      */
-    fun from(dto: ArticleDTO): ArticleEntity {
+    fun from(dto: ArticleDto): ArticleEntity {
         return ArticleEntity(
             userId = dto.userId,
             content = dto.content,

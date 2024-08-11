@@ -1,5 +1,7 @@
 package com.example.DevConnect.adapter.controller
 
+import com.example.DevConnect.adapter.dto.ArticleDTO
+import com.example.DevConnect.adapter.dto.ArticleDto
 import com.example.DevConnect.domain.model.entity.article.ArticleEntity
 import com.example.DevConnect.service.ArticleService
 import org.springframework.web.bind.annotation.PostMapping
@@ -23,9 +25,8 @@ class ArticleController(
      * @return 記事エンティティ
      */
     @PostMapping("")
-    fun create(articleEntity: ArticleEntity): Result<ArticleEntity> {
-        println(articleEntity)
-        return articleService.create(articleEntity)
+    fun create(articleDto: ArticleDto): Result<ArticleEntity> {
+        return articleService.create(articleDto)
     }
 
     /**
