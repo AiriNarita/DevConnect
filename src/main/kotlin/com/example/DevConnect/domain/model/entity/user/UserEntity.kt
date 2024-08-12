@@ -26,6 +26,7 @@ data class UserEntity(
     val userId: Int? = null,
 
     @NonNull
+    @Column(name = "user_name")
     val username: String,
 
     @NonNull

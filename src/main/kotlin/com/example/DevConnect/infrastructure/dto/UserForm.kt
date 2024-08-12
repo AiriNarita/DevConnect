@@ -7,7 +7,7 @@ package com.example.DevConnect.infrastructure.dto
  * @property password パスワード
  */
 data class UserForm(
-    val name: String,
-    val email: String,
+    var name: String,
+    var email: String,
     var password: String
 )

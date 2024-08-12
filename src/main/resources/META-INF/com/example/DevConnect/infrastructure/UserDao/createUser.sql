@@ -1,9 +1,11 @@
-INSERT INTO users (user_id, username,　email, password, created_at, updated_at,version, user_status, role)
+INSERT INTO users (user_name, email, password, created_at, updated_at, version, user_status, role)
 VALUES (
-    /* userEntity.userId */1,
     /* userEntity.username*/'John',
     /* userEntity.email */'',
     /* userEntity.password */'',
-    /* userEntity.userStatus */'',
-    /* userEntity.role */'',
+    /* userEntity.createdAt */'2024-08-12T12:00:00',
+    /* userEntity.updatedAt */'2024-08-12T12:00:00',
+    /* userEntity.version */1,
+    /* userEntity.userStatus */'ACTIVE',
+    /* userEntity.role */'USER'
 )
