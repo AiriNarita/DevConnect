@@ -21,4 +21,12 @@ class UserServise(
         val userEntity = UserFactory.from(userForm)
         return userRepository.createUser(userEntity)
     }
+
+    /**
+     * ユーザーの取得
+     * @param username ユーザー名
+     */
+    fun findByUsername(username: String): UserEntity? {
+        return userRepository.findByUsername(username)
+    }
 }

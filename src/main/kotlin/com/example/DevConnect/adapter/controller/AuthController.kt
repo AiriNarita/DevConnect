@@ -1,6 +1,6 @@
 package com.example.DevConnect.adapter.controller
 
-import com.example.DevConnect.configration.CustomUserDetails
+import com.example.DevConnect.configration.logger
 import com.example.DevConnect.domain.model.entity.user.UserEntity
 import com.example.DevConnect.infrastructure.dto.UserForm
 import com.example.DevConnect.service.EncordService
@@ -18,7 +18,7 @@ class AuthController(
     private val encordService: EncordService
 ) {
     companion object {
-        //logger
+        val log = logger()
     }
 
     /**
@@ -53,5 +53,10 @@ class AuthController(
      */
     @PostMapping("/login")
     fun login() {
+        try {
+            userServise.findByUsername(SecurityContextHolder.getContext().authentication.name)
+        } catch (e: Exception) {
+            log.error("ユーザーが見つかりませんでした")
+        }
     }
 }

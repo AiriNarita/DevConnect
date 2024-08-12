@@ -21,8 +21,10 @@ class UserRepository(
 
     /**
      * ユーザーの取得
+     * @param username ユーザー名
+     * @return ユーザーエンティティ
      */
-    fun findByUsername(username: String): UserEntity{
+    fun findByUsername(username: String): UserEntity?{
         return userDao.findByUsername(username)
     }
 }

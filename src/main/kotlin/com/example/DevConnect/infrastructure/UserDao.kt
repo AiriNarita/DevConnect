@@ -28,5 +28,5 @@ interface UserDao {
      * ユーザーを取得する
      */
     @Select
-    fun findByUsername(username: String): UserEntity
+    fun findByUsername(username: String): UserEntity?
 }
