@@ -52,9 +52,6 @@ class AuthController(
      * ログイン処理
      */
     @PostMapping("/login")
-    fun login(): String {
-        println("login")
-        val userDetails = SecurityContextHolder.getContext().authentication.principal as CustomUserDetails
-        return userDetails.username
+    fun login() {
     }
 }

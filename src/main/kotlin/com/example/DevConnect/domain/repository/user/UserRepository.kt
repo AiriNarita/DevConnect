@@ -18,4 +18,11 @@ class UserRepository(
     fun createUser(userEntity: UserEntity): Result<UserEntity> {
         return userDao.createUser(userEntity)
     }
+
+    /**
+     * ユーザーの取得
+     */
+    fun findByUsername(username: String): UserEntity{
+        return userDao.findByUsername(username)
+    }
 }
