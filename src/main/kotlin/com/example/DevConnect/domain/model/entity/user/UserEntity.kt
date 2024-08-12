@@ -23,7 +23,7 @@ data class UserEntity(
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "user_id")
-    val userId: Int,
+    val userId: Int? = null,
 
     @NonNull
     val username: String,

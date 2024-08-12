@@ -2,6 +2,7 @@ package com.example.DevConnect.adapter.controller
 
 import com.example.DevConnect.configration.CustomUserDetails
 import com.example.DevConnect.domain.model.entity.user.UserEntity
+import com.example.DevConnect.infrastructure.dto.UserForm
 import com.example.DevConnect.service.UserServise
 import org.seasar.doma.jdbc.Result
 import org.springframework.security.core.context.SecurityContextHolder
@@ -27,14 +28,6 @@ class AuthController(
     fun loginPage(): String {
         return "login"
     }
-
-    @PostMapping("/login")
-    fun login(): String {
-        println("login")
-        val userDetails = SecurityContextHolder.getContext().authentication.principal as CustomUserDetails
-        return userDetails.username
-    }
-
     /**
      * サインアップページの表示
      */
@@ -43,15 +36,28 @@ class AuthController(
         return "signup"
     }
 
+    /**
+     * サインアップ処理
+     */
     @PostMapping("/signup")
-    fun sighup(
-        @RequestBody userEntity: UserEntity
+    fun signup(
+        @RequestBody userForm: UserForm
     ): Result<UserEntity> {
-        println("sighupします")
+        println("signupします")
         try {
-            return userServise.createUser(userEntity)
+            return userServise.createUser(userForm)
         } catch (e: Exception) {
             throw e
         }
+    }
+
+    /**
+     * ログイン処理
+     */
+    @PostMapping("/login")
+    fun login(): String {
+        println("login")
+        val userDetails = SecurityContextHolder.getContext().authentication.principal as CustomUserDetails
+        return userDetails.username
     }
 }
