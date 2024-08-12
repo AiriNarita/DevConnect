@@ -9,7 +9,8 @@ import java.time.LocalDateTime
 /**
  * ユーザー生成ファクトリークラス
  */
-class UserFactory {
+class UserFactory(
+) {
     companion object {
         /**
          * 生成する

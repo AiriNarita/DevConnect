@@ -37,6 +37,6 @@ data class CustomUserDetails(
         return user.userStatus.equals("Active")
     }
 
-    val id: Int
+    val id: Int?
         get() = user.userId  // ここでユーザーIDを取得
 }

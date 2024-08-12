@@ -9,5 +9,5 @@ package com.example.DevConnect.infrastructure.dto
 data class UserForm(
     val name: String,
     val email: String,
-    val password: String
+    var password: String
 )

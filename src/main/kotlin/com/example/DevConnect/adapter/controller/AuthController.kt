@@ -3,6 +3,7 @@ package com.example.DevConnect.adapter.controller
 import com.example.DevConnect.configration.CustomUserDetails
 import com.example.DevConnect.domain.model.entity.user.UserEntity
 import com.example.DevConnect.infrastructure.dto.UserForm
+import com.example.DevConnect.service.EncordService
 import com.example.DevConnect.service.UserServise
 import org.seasar.doma.jdbc.Result
 import org.springframework.security.core.context.SecurityContextHolder
@@ -15,7 +16,8 @@ import org.springframework.web.bind.annotation.RequestMapping
 @Controller
 @RequestMapping("/")
 class AuthController(
-    private val userServise: UserServise
+    private val userServise: UserServise,
+    private val encordService: EncordService
 ) {
     companion object {
         //logger
@@ -43,7 +45,8 @@ class AuthController(
     fun signup(
         @RequestBody userForm: UserForm
     ): Result<UserEntity> {
-        println("signupします")
+        val encordPassword = encordService.encode(userForm.password)
+        userForm.password = encordPassword
         try {
             return userServise.createUser(userForm)
         } catch (e: Exception) {

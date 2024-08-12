@@ -29,7 +29,7 @@ class ArticleController(
     fun create(articleDto: ArticleDto): Result<ArticleEntity> {
         // 現在の認証されたユーザー情報を取得
         val authentication = SecurityContextHolder.getContext().authentication
-        val userId = (authentication.principal as CustomUserDetails).id
+        val userId = (authentication.principal as CustomUserDetails).id ?: throw Exception("ユーザーIDが取得できませんでした")
 
         // `userId` を ArticleDto にセット
         val articleDtoWithUserId = articleDto.copy(userId = userId)
