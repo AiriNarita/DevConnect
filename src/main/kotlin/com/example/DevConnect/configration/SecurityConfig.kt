@@ -1,9 +1,11 @@
 package com.example.DevConnect.configration
 
+import org.springframework.boot.autoconfigure.security.servlet.PathRequest.toH2Console
 import org.springframework.context.annotation.Bean
 import org.springframework.context.annotation.Configuration
 import org.springframework.security.config.annotation.web.builders.HttpSecurity
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity
+import org.springframework.security.config.annotation.web.configuration.WebSecurityCustomizer
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder
 import org.springframework.security.crypto.password.PasswordEncoder
 import org.springframework.security.web.SecurityFilterChain
@@ -14,6 +16,23 @@ import org.springframework.security.web.SecurityFilterChain
 @Configuration
 @EnableWebSecurity
 class SecurityConfig{
+
+    /**
+     * Spring Securityのセキュリティフィルターチェーンから
+     * H2データベースコンソールへのアクセスを除外する設定
+     *
+     * @param http HttpSecurity
+     * @return WebSecurityCustomizer
+     */
+    @Bean
+    fun configure(http: HttpSecurity): WebSecurityCustomizer {
+        return WebSecurityCustomizer { web ->
+            web.ignoring()
+                .requestMatchers(toH2Console())
+                .requestMatchers("/h2-console/**")
+        }
+    }
+
     /**
      *  パスワードエンコーダーのBean定義
      *  @return PasswordEncoder
@@ -35,15 +54,16 @@ class SecurityConfig{
                 // 特定のURLパターンに対するアクセス権限の設定
                 requests
                     // ログインページと登録ページは、全てのユーザーにアクセスを許可(認証不要なURL)
-                    .requestMatchers("/login", "/register").permitAll()
+                    .requestMatchers("/login", "/signup", "/h2-console").permitAll()
                     // それ以外のすべてのリクエストは認証が必要
                     .anyRequest().authenticated()
             }
             .formLogin { form ->
                 // フォームベースの認証の設定
                 form
-                    // 認証を行わないリクエストも許可
-                    .permitAll()
+                    .loginPage("/login") // カスタムログインページのパスを指定
+                    .defaultSuccessUrl("/", true) // ログイン成功後のリダイレクト先
+                    .permitAll() // ログインページは認証不要
             }
             .logout { logout ->
                 // ログアウトに関する設定
