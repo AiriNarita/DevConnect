@@ -45,8 +45,7 @@ class AuthController(
     fun signup(
         @RequestBody userForm: UserForm
     ): Result<UserEntity> {
-        val encordPassword = encordService.encode(userForm.password)
-        userForm.password = encordPassword
+        userForm.password = encordService.encode(userForm.password)
         try {
             return userServise.createUser(userForm)
         } catch (e: Exception) {
