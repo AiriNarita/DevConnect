@@ -42,7 +42,22 @@ class AuthController(
     fun signup(
         @ModelAttribute userForm: UserSignUpForm,
         bindingResult: BindingResult
-    ): Result<UserEntity> {
-        return userServise.createUser(userForm)
+    ): String{
+       val result = userServise.createUser(userForm)
+        if(result.count > 0){
+            log.info("ユーザーの登録に成功しました")
+            return "login"
+        }else{
+            log.error("ユーザーの登録に失敗しました")
+            return "signup"
+        }
+    }
+
+    /**
+     * ログアウト処理
+     */
+    @GetMapping("/logout")
+    fun logout(): String {
+        return "logout"
     }
 }
