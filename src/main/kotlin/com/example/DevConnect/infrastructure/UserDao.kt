@@ -29,10 +29,4 @@ interface UserDao {
      */
     @Select
     fun findByUsername(username: String): UserEntity?
-
-    /**
-     * ユーザー認証
-     */
-    @Select
-    fun authenticate(username: String, password: String): UserEntity?
 }

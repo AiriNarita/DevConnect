@@ -2,7 +2,8 @@ package com.example.DevConnect.adapter.controller
 
 import com.example.DevConnect.configration.logger
 import com.example.DevConnect.domain.model.entity.user.UserEntity
-import com.example.DevConnect.infrastructure.dto.UserForm
+import com.example.DevConnect.infrastructure.dto.UserLoginForm
+import com.example.DevConnect.infrastructure.dto.UserSignUpForm
 import com.example.DevConnect.service.EncordService
 import com.example.DevConnect.service.UserServise
 import org.seasar.doma.jdbc.Result
@@ -41,7 +42,7 @@ class AuthController(
      */
     @PostMapping("/signup")
     fun signup(
-        @ModelAttribute userForm: UserForm,
+        @ModelAttribute userForm: UserSignUpForm,
         bindingResult: BindingResult
     ): Result<UserEntity> {
         userForm.password = encordService.encode(userForm.password)
@@ -52,11 +53,9 @@ class AuthController(
      * ログイン処理
      */
     @PostMapping("/login")
-    fun login() {
-        try {
-            userServise.findByUsername(SecurityContextHolder.getContext().authentication.name)
-        } catch (e: Exception) {
-            log.error("ユーザーが見つかりませんでした")
-        }
+    fun login(
+        @ModelAttribute userForm: UserLoginForm,
+    ) {
+       userServise.findByUsername(userForm)
     }
 }

@@ -3,7 +3,7 @@ package com.example.DevConnect.domain.factory.user
 import com.example.DevConnect.domain.model.entity.user.UserEntity
 import com.example.DevConnect.domain.model.entity.user.UserRole
 import com.example.DevConnect.domain.model.entity.user.UserStatusEnum
-import com.example.DevConnect.infrastructure.dto.UserForm
+import com.example.DevConnect.infrastructure.dto.UserSignUpForm
 import java.time.LocalDateTime
 
 /**
@@ -18,7 +18,7 @@ class UserFactory(
          * @param userForm ユーザーフォーム
          * @return UserEntity
          */
-        fun from(userForm: UserForm): UserEntity {
+        fun from(userForm: UserSignUpForm): UserEntity {
             return UserEntity(
                 userId = null,
                 username = userForm.name,
