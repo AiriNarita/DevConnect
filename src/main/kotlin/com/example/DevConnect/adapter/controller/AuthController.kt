@@ -1,11 +1,9 @@
 package com.example.DevConnect.adapter.controller
 
 import com.example.DevConnect.configration.logger
-import com.example.DevConnect.domain.model.entity.user.UserEntity
 import com.example.DevConnect.infrastructure.dto.UserSignUpForm
 import com.example.DevConnect.service.EncordService
 import com.example.DevConnect.service.SignUpServise
-import org.seasar.doma.jdbc.Result
 import org.springframework.stereotype.Controller
 import org.springframework.validation.BindingResult
 import org.springframework.web.bind.annotation.*
@@ -58,6 +56,7 @@ class AuthController(
      */
     @GetMapping("/logout")
     fun logout(): String {
-        return "logout"
+        return "login"
     }
+
 }
