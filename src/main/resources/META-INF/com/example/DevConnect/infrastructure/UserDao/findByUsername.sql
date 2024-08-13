@@ -1,3 +1,3 @@
 SELECT *
 FROM users
-WHERE username = /* username */'sampleUser'
+WHERE user_name = /* username */'sampleUser'
