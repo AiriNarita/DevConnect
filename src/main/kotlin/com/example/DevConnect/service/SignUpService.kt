@@ -8,20 +8,20 @@ import org.seasar.doma.jdbc.Result
 import org.springframework.stereotype.Service
 
 @Service
-class SignUpServise(
+class SignUpService(
     private val userRepository: UserRepository,
-    private val encordService: EncordService
+    private val encoredService: EncoredService
 
 ){
 
     /**
      * ユーザーの作成
-     * @param userEntity ユーザーエンティティ
+     * @param userForm ユーザー登録フォーム
      * @return ユーザーエンティティ
      */
     fun createUser(userForm: UserSignUpForm): Result<UserEntity> {
         // パスワードをエンコード
-        val encodedPassword = encordService.encode(userForm.password)
+        val encodedPassword = encoredService.encode(userForm.password)
         val userEntity = UserFactory.from(userForm.copy(password = encodedPassword))
         return userRepository.createUser(userEntity)
     }

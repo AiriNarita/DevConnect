@@ -8,7 +8,7 @@ import org.springframework.stereotype.Service
  * @property passwordEncoder パスワードエンコーダー
  */
 @Service
-class EncordService(
+class EncoredService(
     private val passwordEncoder: PasswordEncoder
 ) {
     /**

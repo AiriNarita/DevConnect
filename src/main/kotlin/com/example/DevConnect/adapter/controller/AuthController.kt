@@ -2,8 +2,8 @@ package com.example.DevConnect.adapter.controller
 
 import com.example.DevConnect.configration.logger
 import com.example.DevConnect.infrastructure.dto.UserSignUpForm
-import com.example.DevConnect.service.EncordService
-import com.example.DevConnect.service.SignUpServise
+import com.example.DevConnect.service.EncoredService
+import com.example.DevConnect.service.SignUpService
 import org.springframework.stereotype.Controller
 import org.springframework.validation.BindingResult
 import org.springframework.web.bind.annotation.*
@@ -11,8 +11,8 @@ import org.springframework.web.bind.annotation.*
 @Controller
 @RequestMapping("/")
 class AuthController(
-    private val userServise: SignUpServise,
-    private val encordService: EncordService
+    private val userServise: SignUpService,
+    private val encordService: EncoredService
 ) {
     companion object {
         val log = logger()
@@ -35,6 +35,8 @@ class AuthController(
 
     /**
      * サインアップ処理
+     * @param userForm ユーザー登録フォーム
+     * @param bindingResult バインディング結果
      */
     @PostMapping("/signup")
     fun signup(
@@ -53,6 +55,7 @@ class AuthController(
 
     /**
      * ログアウト処理
+     * @return ログインページ
      */
     @GetMapping("/logout")
     fun logout(): String {
