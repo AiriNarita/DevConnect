@@ -29,4 +29,10 @@ interface UserDao {
      */
     @Select()
     fun findByUsername(username: String): UserEntity?
+
+    /**
+     * emailを取得する
+     */
+    @Select()
+    fun findByEmail(email: String): UserEntity?
 }

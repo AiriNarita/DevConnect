@@ -22,4 +22,23 @@ class UserValidation(
             return Regex("^[a-zA-Z0-9-_]+$").matches(userName)
         }
 
+    /**
+     * emailのバリデーション
+     * 半角英数字とハイフン、アンダースコアのみを許可
+     *
+     * @param email メールアドレス
+     * @return バリデーション結果
+     */
+    fun validateEmail(email: String): Boolean {
+        return Regex("^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,6}$").matches(email)
+    }
+
+    /**
+     * passwordのバリデーション
+     */
+    fun validatePassword(password: String): Boolean {
+        val length = password.length >=8
+        return length && Regex("^[a-zA-Z0-9-_]+$").matches(password)
+    }
+
 }

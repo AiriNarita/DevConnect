@@ -25,12 +25,23 @@ class SignUpService(
      */
     fun createUser(userForm: UserSignUpForm): OperationResult<UserEntity, String>{
 
-            val existingUser = userRepository.findByUsername(userForm.username)
-            if (existingUser != null) {
-                return OperationResult.failure("ユーザー名が既に存在します")
-            }
-            if (! userValidation.validateUserName(userForm.username) )
-                return OperationResult.failure("ユーザー名は半角英数字とハイフン、アンダースコアのみを許可します")
+        val existingUser = userRepository.findByUsername(userForm.username)
+        if (existingUser != null) {
+            return OperationResult.failure("ユーザー名が既に存在します")
+        }
+        val existEmail = userRepository.findByEmail(userForm.email)
+        if (existEmail != null) {
+            return OperationResult.failure("メールアドレスが既に存在します")
+        }
+
+        if (! userValidation.validateUserName(userForm.username) )
+             return OperationResult.failure("ユーザー名は半角英数字とハイフン、アンダースコアのみを許可します")
+
+        if (! userValidation.validateEmail(userForm.email))
+             return OperationResult.failure("メールアドレスの形式が正しくありません")
+
+        if (! userValidation.validatePassword(userForm.password))
+            return OperationResult.failure("パスワードは8文字以上で、半角英数字とハイフン、アンダースコアのみを許可します")
 
             // パスワードをエンコード
             val encodedPassword = encoredService.encode(userForm.password)
