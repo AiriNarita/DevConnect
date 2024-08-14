@@ -13,8 +13,10 @@ import io.mockk.every
 import io.mockk.impl.annotations.InjectMockKs
 import io.mockk.impl.annotations.MockK
 import io.mockk.junit5.MockKExtension
+import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.Assertions.assertTrue
 import org.junit.jupiter.api.BeforeEach
+import org.junit.jupiter.api.Nested
 import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.extension.ExtendWith
 import org.seasar.doma.jdbc.Result
@@ -42,32 +44,64 @@ class SignUpServiceTest {
         MockKAnnotations.init(this)
     }
 
-    @Test
-    fun `入力値が正しければSuccessを返すこと`() {
+    @Nested
+    inner class `正常系` {
 
-        val userForm = UserSignUpForm("test", "mail@mail.com", "password")
-        val encodedPassword = "encodedPassword"
-        val userEntity = UserEntity(
-            userId = 1 ,
-            username = userForm.username,
-            email = userForm.email,
-            password = encodedPassword,
-            version = 1,
-            userStatus = UserStatusEnum.ACTIVE,
-            role = UserRole.USER,
-        )
+        @Test
+        fun `入力値が正しければSuccessを返すこと`() {
+
+            val userForm = UserSignUpForm("test", "mail@mail.com", "password")
+            val encodedPassword = "encodedPassword"
+            val userEntity = UserEntity(
+                userId = 1,
+                username = userForm.username,
+                email = userForm.email,
+                password = encodedPassword,
+                version = 1,
+                userStatus = UserStatusEnum.ACTIVE,
+                role = UserRole.USER,
+            )
 
 
-        every { userRepository.findByUsername(userForm.username) } returns null
-        every { userRepository.findByEmail(userForm.email) } returns null
-        every { userValidation.validateUserName(userForm.username) } returns true
-        every { userValidation.validateEmail(userForm.email) } returns true
-        every { userValidation.validatePassword(userForm.password) } returns true
-        every { encoredService.encode(userForm.password) } returns encodedPassword
-        every { userRepository.createUser(any()) } returns Result<UserEntity>(1, userEntity)
+            every { userRepository.findByUsername(userForm.username) } returns null
+            every { userRepository.findByEmail(userForm.email) } returns null
+            every { userValidation.validateUserName(userForm.username) } returns true
+            every { userValidation.validateEmail(userForm.email) } returns true
+            every { userValidation.validatePassword(userForm.password) } returns true
+            every { encoredService.encode(userForm.password) } returns encodedPassword
+            every { userRepository.createUser(any()) } returns Result<UserEntity>(1, userEntity)
 
-        val result = signUpService.createUser(userForm)
+            val result = signUpService.createUser(userForm)
 
-        assertTrue(result is OperationResult.Success)
+            assertTrue(result is OperationResult.Success)
+        }
+    }
+
+    @Nested
+    inner class `異常系` {
+        @Test
+        fun `ユーザー名が既に存在する場合Failureを返すこと`() {
+            val userForm = UserSignUpForm("existingUser", "mail@mail.com", "password")
+            val existingUserEntity = UserEntity(
+                userId = 1,
+                username = userForm.username,
+                email = userForm.email,
+                password = "hashedPassword",
+                version = 1,
+                userStatus = UserStatusEnum.ACTIVE,
+                role = UserRole.USER
+            )
+
+            every { userRepository.findByUsername(userForm.username) } returns existingUserEntity
+            every { userRepository.findByEmail(userForm.email) } returns null
+
+            val result = signUpService.createUser(userForm)
+
+            assertTrue(result is OperationResult.Failure)
+            if (result is OperationResult.Failure) {
+                assertEquals("ユーザー名が既に存在します", result.error)
+            }
+        }
+
     }
 }
