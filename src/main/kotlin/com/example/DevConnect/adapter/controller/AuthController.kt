@@ -1,11 +1,11 @@
 package com.example.DevConnect.adapter.controller
 
 import OperationResult
-import ch.qos.logback.core.model.Model
 import com.example.DevConnect.configration.logger
 import com.example.DevConnect.infrastructure.dto.UserSignUpForm
 import com.example.DevConnect.service.SignUpService
 import org.springframework.stereotype.Controller
+import org.springframework.ui.Model
 import org.springframework.validation.BindingResult
 import org.springframework.web.bind.annotation.*
 
