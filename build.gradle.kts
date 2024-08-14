@@ -52,6 +52,13 @@ dependencies {
 	implementation("org.springframework.security:spring-security-core")
 	implementation("org.springframework.security:spring-security-config")
 	implementation("org.springframework.security:spring-security-web")
+
+	// JUnit 5
+	testImplementation("org.junit.jupiter:junit-jupiter-api:5.10.0")
+	testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:5.10.0")
+
+	// MockK for Kotlin
+	testImplementation("io.mockk:mockk:1.13.5")
 }
 
 tasks.withType<KotlinCompile> {
