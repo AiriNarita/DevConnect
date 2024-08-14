@@ -1,8 +1,9 @@
 package com.example.DevConnect.adapter.controller
 
+import OperationResult
+import ch.qos.logback.core.model.Model
 import com.example.DevConnect.configration.logger
 import com.example.DevConnect.infrastructure.dto.UserSignUpForm
-import com.example.DevConnect.service.EncoredService
 import com.example.DevConnect.service.SignUpService
 import org.springframework.stereotype.Controller
 import org.springframework.validation.BindingResult
@@ -11,8 +12,7 @@ import org.springframework.web.bind.annotation.*
 @Controller
 @RequestMapping("/")
 class AuthController(
-    private val userServise: SignUpService,
-    private val encordService: EncoredService
+    private val userService: SignUpService,
 ) {
     companion object {
         val log = logger()
@@ -41,15 +41,24 @@ class AuthController(
     @PostMapping("/signup")
     fun signup(
         @ModelAttribute userForm: UserSignUpForm,
-        bindingResult: BindingResult
+        bindingResult: BindingResult,
+        model: Model
     ): String{
-       val result = userServise.createUser(userForm)
-        if(result.count > 0){
-            log.info("ユーザーの登録に成功しました")
-            return "login"
-        }else{
-            log.error("ユーザーの登録に失敗しました")
-            return "signup"
+        val result = userService.createUser(userForm)
+        return when (result)  {
+            is OperationResult.Success -> {
+                log.info("ユーザーの登録に成功しました")
+                return "login"
+            }
+            is OperationResult.Failure -> {
+                log.error("ユーザーの登録に失敗しました: ${result.error}")
+                bindingResult.rejectValue("username", "error.userForm",  result.error)
+                return "signup"
+            }
+            else -> {
+                log.error("予期しないエラーが発生しました")
+                "signup"
+            }
         }
     }
 

@@ -14,15 +14,12 @@ class UserValidation(
 
         /**
         * ユーザー名のバリデーション
-        * ユーザー名は1文字以上50文字以下で、半角英数字とハイフン、アンダースコアのみを許可し、ユニークであること
+        * 半角英数字とハイフン、アンダースコアのみを許可
         * @param userName ユーザー名
         * @return バリデーション結果
         */
         fun validateUserName(userName: String): Boolean {
-            val length = userName.length in 1..50
-            val regex = Regex("^[a-zA-Z0-9-_]+$").matches(userName)
-            val isUnique = userRepository.findByUsername(userName) == null
-            return length && regex && isUnique
+            return Regex("^[a-zA-Z0-9-_]+$").matches(userName)
         }
 
 }

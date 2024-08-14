@@ -21,7 +21,7 @@ class UserFactory(
         fun from(userForm: UserSignUpForm): UserEntity {
             return UserEntity(
                 userId = null,
-                username = userForm.name,
+                username = userForm.username,
                 email = userForm.email,
                 password = userForm.password,
                 version = 1,

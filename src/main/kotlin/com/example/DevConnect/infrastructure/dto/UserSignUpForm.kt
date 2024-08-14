@@ -2,12 +2,12 @@ package com.example.DevConnect.infrastructure.dto
 
 /**
  * ユーザーフォーム
- * @property name 名前
+ * @property username 名前
  * @property email メールアドレス
  * @property password パスワード
  */
 data class UserSignUpForm(
-    var name: String,
-    var email: String,
+    val username: String,
+    val email: String,
     var password: String
 )
