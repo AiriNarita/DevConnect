@@ -16,8 +16,10 @@
             <div th:if="${isLoggedIn}">
                 <a href="/profile" class="text-gray-300 hover:text-white mr-4">Profile</a>
                 <form action="/logout" method="post" style="display: inline;">
-                    <button type="submit" class="bg-red-600 text-white px-4 py-2 rounded hover:bg-red-700 transition-colors duration-300">Log Out</button>
-                </form>
+                    <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}">
+                    <button type="submit" class="bg-red-600 text-white px-4 py-2 rounded hover:bg-red-700 transition-colors duration-300">
+                        Log Out
+                    </button>
             </div>
             <!-- ログインしていない場合 -->
             <div th:if="${!isLoggedIn}">

@@ -32,7 +32,7 @@ class SecurityConfig{
         http
             .authorizeHttpRequests { requests ->
                 requests
-                    .requestMatchers("/login", "/signup", "/h2-console").permitAll()
+                    .requestMatchers("/", "/login", "/signup", "/h2-console").permitAll()
                     .anyRequest().authenticated()
             }
             .formLogin { form ->
@@ -42,7 +42,13 @@ class SecurityConfig{
                     .permitAll()
             }
             .logout { logout ->
-                logout.permitAll()
+                logout
+//                    .permitAll()
+                    .logoutUrl("/logout")  // ログアウト用URLを設定（デフォルトで "/logout"）
+                    .logoutSuccessUrl("/") // ログアウト成功後のリダイレクト先を設定
+                    .invalidateHttpSession(true)  // セッションを無効にする
+                    .deleteCookies("JSESSIONID")  // セッションIDのクッキーを削除
+
             }
         return http.build()
     }

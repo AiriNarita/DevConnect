@@ -62,13 +62,4 @@ class AuthController(
         }
     }
 
-    /**
-     * ログアウト処理
-     * @return ログインページ
-     */
-    @GetMapping("/logout")
-    fun logout(): String {
-        return "login"
-    }
-
 }
