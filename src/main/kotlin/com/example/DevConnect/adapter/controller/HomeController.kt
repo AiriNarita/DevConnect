@@ -28,6 +28,7 @@ class HomeController {
 
         val isLoggedIn = authentication?.isAuthenticated == true && authentication?.name != "anonymousUser"
         model.addAttribute("isLoggedIn", isLoggedIn)
+        println("$isLoggedIn")
         return "index"
 
     }
