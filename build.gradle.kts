@@ -53,6 +53,9 @@ dependencies {
 	implementation("org.springframework.security:spring-security-config")
 	implementation("org.springframework.security:spring-security-web")
 
+	// flyway
+	implementation("org.flywaydb:flyway-core:9.8.0")
+
 	// JUnit 5
 	testImplementation("org.junit.jupiter:junit-jupiter-api:5.10.0")
 	testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:5.10.0")
