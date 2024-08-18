@@ -18,19 +18,11 @@ class HomeController {
      */
     @GetMapping
     fun index(model: Model): String {
-
         val authentication: Authentication? = SecurityContextHolder.getContext().authentication
-
-        println("Authentication: $authentication")
-        println("Principal: ${authentication?.principal}")
-        println("Is Authenticated: ${authentication?.isAuthenticated}")
-        println("Name: ${authentication?.name}")
-
         val isLoggedIn = authentication?.isAuthenticated == true && authentication?.name != "anonymousUser"
         model.addAttribute("isLoggedIn", isLoggedIn)
         println("$isLoggedIn")
         return "index"
-
     }
 
 }

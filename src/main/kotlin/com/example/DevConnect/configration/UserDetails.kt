@@ -38,5 +38,5 @@ data class CustomUserDetails(
     }
 
     val id: Int?
-        get() = user.userId  // ここでユーザーIDを取得
+        get() = user.userId
 }

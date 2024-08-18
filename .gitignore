@@ -39,3 +39,7 @@ out/
 ### Kotlin ###
 .kotlin
 
+
+# H2 database files
+*.mv.db
+*.trace.db
