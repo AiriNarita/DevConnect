@@ -24,5 +24,4 @@ class HomeController {
         println("$isLoggedIn")
         return "index"
     }
-
 }
