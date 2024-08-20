@@ -4,8 +4,8 @@ import com.example.DevConnect.domain.factory.article.ArticleFactory
 import com.example.DevConnect.domain.model.entity.article.ArticleEntity
 import com.example.DevConnect.domain.repository.article.ArticleRepository
 import com.example.DevConnect.infrastructure.dto.ArticleDto
-import org.springframework.stereotype.Service
 import org.seasar.doma.jdbc.Result
+import org.springframework.stereotype.Service
 
 @Service
 class ArticleService(
@@ -14,7 +14,7 @@ class ArticleService(
 
     /**
      * 登録する
-     * @param articleDTO 記事DTO
+     * @param articleDto 記事DTO
      * @return 記事エンティティ
      */
     fun create(articleDto: ArticleDto):  Result<ArticleEntity> {
