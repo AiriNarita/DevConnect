@@ -1,4 +1,4 @@
-package com.example.DevConnect.configration
+package com.example.DevConnect.configuration
 
 //class WebSecurityCustomizer {
 //}

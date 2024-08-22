@@ -1,4 +1,4 @@
-package com.example.DevConnect.configration
+package com.example.DevConnect.configuration
 
 import org.springframework.boot.autoconfigure.security.servlet.PathRequest.toH2Console
 import org.springframework.context.annotation.Bean

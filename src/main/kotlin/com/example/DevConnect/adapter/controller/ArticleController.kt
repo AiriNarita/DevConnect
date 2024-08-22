@@ -1,6 +1,6 @@
 package com.example.DevConnect.adapter.controller
 
-import com.example.DevConnect.configration.CustomUserDetails
+import com.example.DevConnect.configuration.CustomUserDetails
 import com.example.DevConnect.domain.model.entity.article.ArticleEntity
 import com.example.DevConnect.infrastructure.dto.ArticleDto
 import com.example.DevConnect.service.ArticleService

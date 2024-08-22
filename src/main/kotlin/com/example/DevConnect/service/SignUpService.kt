@@ -1,7 +1,7 @@
 package com.example.DevConnect.service
 
 import OperationResult
-import com.example.DevConnect.configration.logger
+import com.example.DevConnect.configuration.logger
 import com.example.DevConnect.domain.factory.user.UserFactory
 import com.example.DevConnect.domain.model.entity.user.UserEntity
 import com.example.DevConnect.domain.repository.user.UserRepository

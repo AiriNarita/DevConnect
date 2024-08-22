@@ -1,7 +1,7 @@
 package com.example.DevConnect.adapter.controller
 
 import OperationResult
-import com.example.DevConnect.configration.logger
+import com.example.DevConnect.configuration.logger
 import com.example.DevConnect.infrastructure.dto.UserSignUpForm
 import com.example.DevConnect.service.SignUpService
 import org.springframework.stereotype.Controller

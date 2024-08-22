@@ -1,4 +1,4 @@
-package com.example.DevConnect.configration
+package com.example.DevConnect.configuration
 
 import com.example.DevConnect.domain.model.entity.user.UserEntity
 import org.springframework.security.core.GrantedAuthority
