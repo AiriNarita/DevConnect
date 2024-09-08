@@ -5,10 +5,6 @@ import org.springframework.security.core.GrantedAuthority
 import org.springframework.security.core.authority.SimpleGrantedAuthority
 import org.springframework.security.core.userdetails.UserDetails
 
-/**
- * SpringSecurityの関連で追加
- */
-
 data class CustomUserDetails(
     private val user: UserEntity
 ) : UserDetails {
