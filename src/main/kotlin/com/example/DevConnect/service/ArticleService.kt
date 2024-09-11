@@ -29,4 +29,13 @@ class ArticleService(
     fun findAllArticle():  List<ArticleEntity> {
         return articleRepository.findAllArticle()
     }
+
+    /**
+     * IDで取得する
+     * @param id ID
+     * @return 記事エンティティ
+     */
+    fun findById(id: Int): ArticleEntity {
+        return articleRepository.findById(id)
+    }
 }

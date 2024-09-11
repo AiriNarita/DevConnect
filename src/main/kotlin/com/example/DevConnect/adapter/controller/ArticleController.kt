@@ -43,4 +43,14 @@ class ArticleController(
         return articleService.findAllArticle()
     }
 
+    /**
+     * 記事のIDで取得
+     * @param id ID
+     * @return 記事エンティティ
+     */
+    @GetMapping("/{id}")
+    fun findById(id: Int): ArticleEntity {
+        return articleService.findById(id)
+    }
+
 }
