@@ -43,6 +43,6 @@ interface ArticleDao {
 
 
     @Delete
-    fun delete(articleEntity: ArticleEntity): Result<ArticleEntity>
+    fun delete(id: Int): Result<ArticleEntity>
 
 }

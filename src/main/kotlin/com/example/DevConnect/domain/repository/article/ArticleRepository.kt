@@ -34,4 +34,12 @@ class ArticleRepository(
     fun findById(id: Int):ArticleEntity {
         return articleDao.findById(id)
     }
+
+    /**
+     * 削除する
+     * @param id ID
+     */
+    fun delete(id: Int): Result<ArticleEntity> {
+        return articleDao.delete(id)
+    }
 }

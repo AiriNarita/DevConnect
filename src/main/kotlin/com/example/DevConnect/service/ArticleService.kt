@@ -38,4 +38,8 @@ class ArticleService(
     fun findById(id: Int): ArticleEntity {
         return articleRepository.findById(id)
     }
+
+    fun delete(id: Int): Result<ArticleEntity> {
+        return articleRepository.delete(id)
+    }
 }
