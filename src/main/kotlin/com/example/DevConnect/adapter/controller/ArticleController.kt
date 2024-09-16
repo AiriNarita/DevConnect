@@ -6,10 +6,7 @@ import com.example.DevConnect.infrastructure.dto.ArticleDto
 import com.example.DevConnect.service.ArticleService
 import org.seasar.doma.jdbc.Result
 import org.springframework.security.core.context.SecurityContextHolder
-import org.springframework.web.bind.annotation.GetMapping
-import org.springframework.web.bind.annotation.PostMapping
-import org.springframework.web.bind.annotation.RequestMapping
-import org.springframework.web.bind.annotation.RestController
+import org.springframework.web.bind.annotation.*
 
 /**
  * ArticleController 記事コントローラー
@@ -49,7 +46,7 @@ class ArticleController(
      * @return 記事エンティティ
      */
     @GetMapping("/{id}")
-    fun findById(id: Int): ArticleEntity {
+    fun findById(@PathVariable id: Int): ArticleEntity {
         return articleService.findById(id)
     }
 
