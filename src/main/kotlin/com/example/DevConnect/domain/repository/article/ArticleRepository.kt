@@ -40,6 +40,7 @@ class ArticleRepository(
      * @param id ID
      */
     fun delete(id: Int): Result<ArticleEntity> {
-        return articleDao.delete(id)
+        val entity = articleDao.findById(id)
+        return articleDao.delete(entity)
     }
 }
