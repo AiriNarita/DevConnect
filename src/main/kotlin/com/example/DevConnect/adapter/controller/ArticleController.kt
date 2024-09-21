@@ -6,13 +6,14 @@ import com.example.DevConnect.infrastructure.dto.ArticleDto
 import com.example.DevConnect.service.ArticleService
 import org.seasar.doma.jdbc.Result
 import org.springframework.security.core.context.SecurityContextHolder
+import org.springframework.stereotype.Controller
 import org.springframework.web.bind.annotation.*
 
 /**
  * ArticleController 記事コントローラー
  * @property articleService ArticleService
  */
-@RestController
+@Controller
 @RequestMapping("/articles")
 class ArticleController(
     private val articleService: ArticleService
