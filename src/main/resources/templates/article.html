@@ -28,6 +28,7 @@
         </div>
     </div>
 </nav>
+</body>
 <body class="bg-gray-100">
 <!-- カテゴリとソートフォーム -->
 <div class="container mx-auto flex">
@@ -54,15 +55,20 @@
                             <option value="likes">いいね順</option>
                         </select>
                     </div>
-                    <button type="submit" class="btn-filter text-white py-2 px-4 rounded-md w-full">フィルタ</button>
+                    <button type="submit" class="btn-filter text-gray py-2 px-4 rounded-md w-full">フィルタ</button>
                 </form>
             </aside>
-
     <!-- 記事一覧 -->
+        </div>
+    </div>
     <div class="w-3/4 p-4">
         <h2 class="text-lg font-semibold mb-4">記事一覧</h2>
         <div id="article-list">
             <!-- サーバーからのレスポンスで記事がここに挿入されます -->
+        </div>
+
+        <div>
+            <a href="/articles/create" class="text-gray-300 hover:text-white mr-4">Articles Create</a>
         </div>
     </div>
 </div>

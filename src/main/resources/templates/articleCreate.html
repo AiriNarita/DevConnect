@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Article</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="bg-gray-100">
+<!-- コンテンツのコンテナ -->
+<div class="container mx-auto p-6">
+    <h1 class="text-3xl font-semibold mb-6 text-center">記事作成</h1>
+
+    <!-- 記事作成フォーム -->
+    <form id="createArticleForm" class="bg-white p-6 shadow-lg rounded-lg" method="POST" action="/articles">
+        <!-- タイトルと右上のカテゴリ・公開ステータス -->
+        <div class="mb-4 flex justify-between items-center">
+            <div class="w-2/3">
+                <label for="title" class="block text-lg font-medium text-gray-700">タイトル</label>
+                <input type="text" id="title" name="title" class="block w-full bg-gray-100 py-2 px-4 rounded mt-2" placeholder="記事のタイトル" required>
+            </div>
+
+            <!-- カテゴリと公開ステータスを右上に配置 -->
+            <div class="flex space-x-4 items-center">
+                <div>
+                    <label for="category" class="block text-sm font-medium text-gray-700">カテゴリ</label>
+                    <select id="category" name="category" class="block bg-gray-100 py-2 px-4 rounded mt-2">
+                        <option value="日報">#日報</option>
+                        <option value="teck">#teck</option>
+                        <option value="独り言">#独り言</option>
+                    </select>
+                </div>
+
+                <div>
+                    <label for="publicStatus" class="block text-sm font-medium text-gray-700">公開ステータス</label>
+                    <select id="publicStatus" name="publicStatus" class="block bg-gray-100 py-2 px-4 rounded mt-2">
+                        <option value="PUBLIC">公開</option>
+                        <option value="PRIVATE">非公開</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+
+        <!-- 記事の内容 -->
+        <div class="mb-4">
+            <label for="content" class="block text-lg font-medium text-gray-700">内容</label>
+            <textarea id="content" name="content" rows="6" class="block w-full bg-gray-100 py-2 px-4 rounded mt-2" placeholder="記事の内容" required></textarea>
+        </div>
+
+        <!-- 作成ボタン -->
+        <div class="text-center">
+            <button type="submit" class="bg-blue-500 text-white py-2 px-6 rounded-md hover:bg-blue-600">記事を作成</button>
+        </div>
+    </form>
+</div>
+</body>
+</html>
