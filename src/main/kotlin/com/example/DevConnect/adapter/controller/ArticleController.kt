@@ -28,7 +28,7 @@ class ArticleController(
     /**
      * 記事一覧の表示
      */
-    @GetMapping("/")
+    @GetMapping("")
     fun showArticleList(model: Model): String {
         val articles = articleService.findAllArticle()
         model.addAttribute("articles", articles)
