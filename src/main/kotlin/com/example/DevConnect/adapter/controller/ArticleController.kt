@@ -22,17 +22,7 @@ class ArticleController(
     // 記事作成フォームの表示
     @GetMapping("/new")
     fun showCreateForm(model: Model): String {
-        return "createArticle"  // createArticle.html テンプレートを返す
-    }
-
-    /**
-     * 記事一覧の表示
-     */
-    @GetMapping("")
-    fun showArticleList(model: Model): String {
-        val articles = articleService.findAllArticle()
-        model.addAttribute("articles", articles)
-        return "/articles"  // articles.html テンプレートを返す
+        return "articleCreate"  // createArticle.html テンプレートを返す
     }
 
     /**
@@ -40,7 +30,7 @@ class ArticleController(
      * @param articleDto 記事DTO
      * @return 記事エンティティ
      */
-    @PostMapping("")
+    @PostMapping("/")
     fun create(
         @ModelAttribute articleDto: ArticleDto
     ): String {
