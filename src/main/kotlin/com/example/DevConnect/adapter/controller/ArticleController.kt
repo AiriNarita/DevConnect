@@ -22,7 +22,7 @@ class ArticleController(
     // 記事作成フォームの表示
     @GetMapping("/new")
     fun showCreateForm(model: Model): String {
-        return "articleCreate"  // createArticle.html テンプレートを返す
+        return "articleCreate"
     }
 
     /**
@@ -63,6 +63,14 @@ class ArticleController(
     @GetMapping("/{id}")
     fun findById(@PathVariable id: Int): ArticleEntity {
         return articleService.findById(id)
+    }
+
+    /**
+     * 記事のstatusを更新
+     */
+    @PutMapping("/{id}")
+    fun updateStatus(@PathVariable id: Int): Int {
+        return articleService.updateStatus(id)
     }
 
 }
