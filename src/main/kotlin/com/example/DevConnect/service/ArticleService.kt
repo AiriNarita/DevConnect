@@ -42,8 +42,4 @@ class ArticleService(
     fun delete(id: Int): Result<ArticleEntity> {
         return articleRepository.delete(id)
     }
-
-    fun update(id: Int): Result<ArticleEntity> {
-        // 未実装
-    }
 }

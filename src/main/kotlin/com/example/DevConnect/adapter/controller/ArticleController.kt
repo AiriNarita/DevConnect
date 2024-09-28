@@ -64,13 +64,4 @@ class ArticleController(
     fun findById(@PathVariable id: Int): ArticleEntity {
         return articleService.findById(id)
     }
-
-    /**
-     * 記事のstatusを更新
-     */
-    @PutMapping("/{id}")
-    fun updateStatus(@PathVariable id: Int): Int {
-        return articleService.updateStatus(id)
-    }
-
 }
