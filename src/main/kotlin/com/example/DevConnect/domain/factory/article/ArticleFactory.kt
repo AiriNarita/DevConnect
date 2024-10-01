@@ -11,7 +11,7 @@ class ArticleFactory {
          * @param dto 記事DTO
          * @return ArticleEntity
          */
-        fun from(dto: ArticleDto): ArticleEntity {
+        fun new(dto: ArticleDto): ArticleEntity {
             return ArticleEntity(
                 articleId = dto.articleId,
                 userId = dto.userId,

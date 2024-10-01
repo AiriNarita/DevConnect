@@ -64,4 +64,13 @@ class ArticleController(
     fun findById(@PathVariable id: Int): ArticleEntity {
         return articleService.findById(id)
     }
+
+    /**
+     * 記事の削除
+     * @param id ID
+     */
+    @DeleteMapping("/{id}")
+    fun delete(@PathVariable id: Int) {
+        articleService.delete(id)
+    }
 }

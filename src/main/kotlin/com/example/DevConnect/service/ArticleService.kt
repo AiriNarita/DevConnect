@@ -18,7 +18,7 @@ class ArticleService(
      * @return 記事エンティティ
      */
     fun create(articleDto: ArticleDto):  Result<ArticleEntity> {
-        val entity = ArticleFactory.from(articleDto)
+        val entity = ArticleFactory.new(articleDto)
         return articleRepository.create(entity)
     }
     /**
@@ -39,7 +39,16 @@ class ArticleService(
         return articleRepository.findById(id)
     }
 
+    /**
+     * 削除する
+     * @param id ID
+     */
     fun delete(id: Int): Result<ArticleEntity> {
+        try {
+            articleRepository.findById(id)
+        } catch (e: Exception) {
+            throw Exception("削除対象の記事が存在しません")
+        }
         return articleRepository.delete(id)
     }
 }
