@@ -17,7 +17,6 @@ import org.springframework.transaction.annotation.Transactional
 @ConfigAutowireable
 @Transactional
 interface ArticleDao {
-
     /**
      * 登録する
      * @param articleEntity 記事エンティティ
@@ -40,6 +39,12 @@ interface ArticleDao {
      */
     @Select
     fun findById(id: Int): ArticleEntity
+
+    /**
+     * 更新する
+     */
+    @Insert(sqlFile = true)
+    fun update(articleEntity: ArticleEntity): Result<ArticleEntity>
 
 
     @Delete
