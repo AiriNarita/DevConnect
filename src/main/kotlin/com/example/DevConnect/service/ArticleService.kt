@@ -51,4 +51,9 @@ class ArticleService(
         }
         return articleRepository.delete(id)
     }
+
+    fun update(articleDto: ArticleDto): Result<ArticleEntity> {
+        val entity = ArticleFactory.new(articleDto)
+        return articleRepository.update(entity)
+    }
 }

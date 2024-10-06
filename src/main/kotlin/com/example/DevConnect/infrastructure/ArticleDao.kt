@@ -44,10 +44,10 @@ interface ArticleDao {
      * 更新する
      */
     @Insert(sqlFile = true)
-    fun update(articleEntity: ArticleEntity): Result<ArticleEntity>
+    fun update(entity: ArticleEntity): Result<ArticleEntity>
 
 
     @Delete
-    fun delete(articleEntity: ArticleEntity): Result<ArticleEntity>
+    fun delete(entity: ArticleEntity): Result<ArticleEntity>
 
 }

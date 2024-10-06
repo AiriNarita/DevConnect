@@ -73,4 +73,15 @@ class ArticleController(
     fun delete(@PathVariable id: Int) {
         articleService.delete(id)
     }
+
+    /**
+     * 記事の更新
+     */
+    @PutMapping("/")
+    fun update(
+        @ModelAttribute articleDto: ArticleDto
+    ): String {
+        articleService.update(articleDto)
+        return "redirect:/articles"
+    }
 }

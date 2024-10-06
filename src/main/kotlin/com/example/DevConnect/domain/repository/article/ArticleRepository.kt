@@ -43,4 +43,12 @@ class ArticleRepository(
         val entity = articleDao.findById(id)
         return articleDao.delete(entity)
     }
+
+
+    /**
+     * 記事を更新する
+     */
+    fun update(articleEntity: ArticleEntity): Result<ArticleEntity> {
+        return articleDao.update(articleEntity)
+    }
 }
