@@ -7,20 +7,17 @@
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
 </head>
 <body class="bg-gray-100">
-<!-- ナビゲーションバー -->
 <nav class="bg-gray-800 p-4">
     <div class="container mx-auto flex justify-between items-center">
         <a href="/" class="text-white text-lg font-bold">DevConnect</a>
         <a href="/articles" class="text-gray-300 hover:text-white mr-4">Articles</a>
         <div>
-            <!-- ログインしている場合 -->
             <div th:if="${isLoggedIn}">
                 <a href="/profile" class="text-gray-300 hover:text-white mr-4">Profile</a>
                 <form action="/logout" method="post" style="display: inline;">
                     <button type="submit" class="bg-red-600 text-white px-4 py-2 rounded hover:bg-red-700 transition-colors duration-300">Log Out</button>
                 </form>
             </div>
-            <!-- ログインしていない場合 -->
             <div th:if="${!isLoggedIn}">
                 <a href="/login" class="text-gray-300 hover:text-white mr-4">Log In</a>
                 <a href="/signup" class="text-gray-300 hover:text-white">Sign Up</a>
@@ -29,18 +26,14 @@
     </div>
 </nav>
 
-<!-- コンテンツのコンテナ -->
 <div class="container mx-auto p-6">
-    <!-- 記事作成フォーム -->
     <form id="createArticleForm" class="bg-white p-6 shadow-lg rounded-lg" method="POST" action="/articles" enctype="multipart/form-data">
-        <!-- タイトルと右上のカテゴリ・公開ステータス -->
         <div class="mb-4 flex justify-between items-center">
             <div class="w-2/3">
                 <label for="title" class="block text-lg font-medium text-gray-700">タイトル</label>
                 <input type="text" id="title" name="title" class="block w-full bg-gray-100 py-2 px-4 rounded mt-2" placeholder="記事のタイトル" required>
             </div>
 
-            <!-- カテゴリと公開ステータスを右上に配置 -->
             <div class="flex space-x-4 items-center">
                 <div>
                     <label for="category" class="block text-sm font-medium text-gray-700">カテゴリ</label>
@@ -68,13 +61,11 @@
             <textarea id="content" name="content" rows="6" class="block w-full bg-gray-100 py-2 px-4 rounded mt-2" placeholder="記事の内容" required></textarea>
         </div>
 
-        <!-- 画像アップロードフォーム -->
         <div class="mb-4">
             <label for="image" class="block text-lg font-medium text-gray-700">画像アップロード (任意)</label>
             <input type="file" id="image" name="image" accept="image/*" class="block w-full text-gray-700 bg-gray-100 py-2 px-4 rounded mt-2">
         </div>
 
-        <!-- 作成ボタン -->
         <div class="text-center">
             <button type="submit" class="bg-blue-500 text-white py-2 px-6 rounded-md hover:bg-blue-600">記事を作成</button>
         </div>
