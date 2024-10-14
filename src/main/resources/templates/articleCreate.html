@@ -1,33 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Create Article</title>
-    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-</head>
+<head th:replace="fragments/head"></head>
 <body class="bg-gray-100">
-<nav class="bg-gray-800 p-4">
-    <div class="container mx-auto flex justify-between items-center">
-        <a href="/" class="text-white text-lg font-bold">DevConnect</a>
-        <a href="/articles" class="text-gray-300 hover:text-white mr-4">Articles</a>
-        <div>
-            <div th:if="${isLoggedIn}">
-                <a href="/profile" class="text-gray-300 hover:text-white mr-4">Profile</a>
-                <form action="/logout" method="post" style="display: inline;">
-                    <button type="submit" class="bg-red-600 text-white px-4 py-2 rounded hover:bg-red-700 transition-colors duration-300">Log Out</button>
-                </form>
-            </div>
-            <div th:if="${!isLoggedIn}">
-                <a href="/login" class="text-gray-300 hover:text-white mr-4">Log In</a>
-                <a href="/signup" class="text-gray-300 hover:text-white">Sign Up</a>
-            </div>
-        </div>
-    </div>
-</nav>
-
+<div th:replace="fragments/navbar"></div>
 <div class="container mx-auto p-6">
-    <form id="createArticleForm" class="bg-white p-6 shadow-lg rounded-lg" method="POST" action="/articles" enctype="multipart/form-data">
+    <form id="createArticleForm" class="bg-white p-6 shadow-lg rounded-lg" method="POST" action="/articles/store" enctype="multipart/form-data">
         <div class="mb-4 flex justify-between items-center">
             <div class="w-2/3">
                 <label for="title" class="block text-lg font-medium text-gray-700">タイトル</label>

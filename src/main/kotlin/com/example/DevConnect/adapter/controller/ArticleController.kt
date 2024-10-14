@@ -18,8 +18,10 @@ import org.springframework.web.bind.annotation.*
 class ArticleController(
     private val articleService: ArticleService
 ) {
-
-    // 記事作成フォームの表示
+    /**
+     * 記事作成画面表示
+     * @return 記事エンティティ
+     */
     @GetMapping("/new")
     fun showCreateForm(model: Model): String {
         return "articleCreate"
