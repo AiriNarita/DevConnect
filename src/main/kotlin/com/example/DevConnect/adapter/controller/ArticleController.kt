@@ -30,7 +30,7 @@ class ArticleController(
      * @param articleDto 記事DTO
      * @return 記事エンティティ
      */
-    @PostMapping("/")
+    @PostMapping("/store")
     fun create(
         @ModelAttribute articleDto: ArticleDto
     ): String {
@@ -47,12 +47,12 @@ class ArticleController(
      * @return 記事エンティティ
      */
     @GetMapping("")
-    fun findAllArticle(
+    fun index(
         model: Model
     ): String {
         val articles = articleService.findAllArticle()
         model.addAttribute("articles", articles)
-        return "articles"
+        return "articles" // スラッシュを除去
     }
 
     /**
@@ -77,7 +77,7 @@ class ArticleController(
     /**
      * 記事の更新
      */
-    @PutMapping("/")
+    @PutMapping("/update")
     fun update(
         @ModelAttribute articleDto: ArticleDto
     ): String {

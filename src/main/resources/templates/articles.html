@@ -1,76 +1,47 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DevConnect</title>
-    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-</head>
+<head th:replace="fragments/head"></head>
 <body class="bg-gray-100">
 <!-- ナビゲーションバー -->
-<nav class="bg-gray-800 p-4">
-    <div class="container mx-auto flex justify-between items-center">
-        <a href="/" class="text-white text-lg font-bold">DevConnect</a>
-        <a href="/articles" class="text-gray-300 hover:text-white mr-4">Articles</a>
-        <div>
-            <!-- ログインしている場合 -->
-            <div th:if="${isLoggedIn}">
-                <a href="/profile" class="text-gray-300 hover:text-white mr-4">Profile</a>
-                <form action="/logout" method="post" style="display: inline;">
-                    <button type="submit" class="bg-red-600 text-white px-4 py-2 rounded hover:bg-red-700 transition-colors duration-300">Log Out</button>
-                </form>
-            </div>
-            <!-- ログインしていない場合 -->
-            <div th:if="${!isLoggedIn}">
-                <a href="/login" class="text-gray-300 hover:text-white mr-4">Log In</a>
-                <a href="/signup" class="text-gray-300 hover:text-white">Sign Up</a>
-            </div>
-        </div>
-    </div>
-</nav>
-</body>
-<body class="bg-gray-100">
+<div th:replace="fragments/navbar"></div>
+
 <!-- カテゴリとソートフォーム -->
-<div class="container mx-auto flex">
+<div class="container mx-auto flex p-6">
     <!-- カテゴリ選択 -->
-    <div class="container mx-auto p-6">
-        <!-- カテゴリとソート -->
-        <div class="grid grid-cols-4 gap-6">
-            <!-- カテゴリ選択 -->
-            <aside class="category-sidebar col-span-1 p-6 shadow-lg rounded-lg">
-                <form id="filterForm" method="GET" action="/articles">
-                    <h2 class="text-xl font-semibold mb-4 text-gray-800">カテゴリ</h2>
-                    <div class="mb-4">
-                        <select name="category" class="block w-full bg-gray-100 py-2 px-4 rounded mb-2 text-gray-700">
-                            <option value="">全て</option>
-                            <option value="#日報">#日報</option>
-                            <option value="#teck">#teck</option>
-                            <option value="#独り言">#独り言</option>
-                        </select>
-                    </div>
-                    <h2 class="text-xl font-semibold mb-4 text-gray-800">ソート</h2>
-                    <div class="mb-4">
-                        <select name="sortBy" class="block w-full bg-gray-100 py-2 px-4 rounded mb-2 text-gray-700">
-                            <option value="updatedAt">更新日順</option>
-                            <option value="likes">いいね順</option>
-                        </select>
-                    </div>
-                    <button type="submit" class="btn-filter text-gray py-2 px-4 rounded-md w-full">フィルタ</button>
-                </form>
-            </aside>
+    <aside class="category-sidebar col-span-1 p-6 shadow-lg rounded-lg w-1/4">
+        <form id="filterForm" method="GET" action="/articles">
+            <h2 class="text-xl font-semibold mb-4 text-gray-800">カテゴリ</h2>
+            <div class="mb-4">
+                <select name="category" class="block w-full bg-gray-100 py-2 px-4 rounded mb-2 text-gray-700">
+                    <option value="">全て</option>
+                    <option value="#日報">#日報</option>
+                    <option value="#teck">#teck</option>
+                    <option value="#独り言">#独り言</option>
+                </select>
+            </div>
+            <h2 class="text-xl font-semibold mb-4 text-gray-800">ソート</h2>
+            <div class="mb-4">
+                <select name="sortBy" class="block w-full bg-gray-100 py-2 px-4 rounded mb-2 text-gray-700">
+                    <option value="updatedAt">更新日順</option>
+                    <option value="likes">いいね順</option>
+                </select>
+            </div>
+            <button type="submit" class="btn-filter text-gray py-2 px-4 rounded-md w-full">フィルタ</button>
+        </form>
+    </aside>
+
     <!-- 記事一覧 -->
-        </div>
-    </div>
     <div class="w-3/4 p-4">
         <h2 class="text-lg font-semibold mb-4">記事一覧</h2>
         <div id="article-list">
             <!-- サーバーからのレスポンスで記事がここに挿入されます -->
         </div>
 
-        <div>
+        <div class="mt-4">
             <a href="/articles/create" class="text-gray-300 hover:text-white mr-4">Articles Create</a>
         </div>
     </div>
 </div>
 </body>
+
 </html>
