@@ -32,7 +32,7 @@ class ArticleController(
      * @param articleDto 記事DTO
      * @return 記事エンティティ
      */
-    @PostMapping("/store")
+    @PostMapping("/create")
     fun create(
         @ModelAttribute articleDto: ArticleDto
     ): String {

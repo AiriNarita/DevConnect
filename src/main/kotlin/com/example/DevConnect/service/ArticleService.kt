@@ -11,7 +11,6 @@ import org.springframework.stereotype.Service
 class ArticleService(
     private val articleRepository: ArticleRepository,
 ) {
-
     /**
      * 登録する
      * @param articleDto 記事DTO
