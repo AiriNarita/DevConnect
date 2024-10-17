@@ -3,7 +3,6 @@
     <div class="container mx-auto flex justify-between items-center">
         <a href="/" class="text-white text-lg font-bold">DevConnect</a>
         <div>
-            <!-- ログインしている場合 -->
             <div th:if="${isLoggedIn}">
                 <a href="/articles" class="text-gray-300 hover:text-white mr-4">Articles</a>
                 <a href="/profile" class="text-gray-300 hover:text-white mr-4">Profile</a>
@@ -14,7 +13,6 @@
                     </button>
                 </form>
             </div>
-            <!-- ログインしていない場合 -->
             <div th:if="${!isLoggedIn}">
                 <a href="/login" class="text-gray-300 hover:text-white mr-4">Log In</a>
                 <a href="/signup" class="text-gray-300 hover:text-white">Sign Up</a>

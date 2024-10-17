@@ -5,8 +5,16 @@ import org.springframework.ui.Model
 import org.springframework.web.bind.annotation.ControllerAdvice
 import org.springframework.web.bind.annotation.ModelAttribute
 
+/**
+ * GlobalControllerAdvice グローバルコントローラーアドバイス
+ * @property model Model
+ */
 @ControllerAdvice
 class GlobalControllerAdvice {
+    /**
+     * ログイン状態を追加
+     * @param model Model
+     */
     @ModelAttribute
     fun addAttributes(model: Model) {
         val authentication = SecurityContextHolder.getContext().authentication
